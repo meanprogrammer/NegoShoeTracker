@@ -10,5 +10,12 @@ namespace NegoShoeTracker.Library
     {
         public int RecordId { get; set; }
         public string ProductName { get; set; }
+        public int MerchantId { get; set; }
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public double SellingPrice { get; set; }
+        public double SoldPrice { get; set; }
+        public int Status { get; set; }
+        public DateTime DateBought { get; set; }
     }
 }
