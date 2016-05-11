@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoeTracker.Library", "NegoShoeTracker.Library\NegoShoeTracker.Library.csproj", "{3BD651CC-3F05-43DD-B8E3-E910FAC4C06F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoeTracker.Web", "NegoShoeTracker.Web\NegoShoeTracker.Web.csproj", "{4EAF9BD8-6B6D-4138-923F-22D75061C70D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3BD651CC-3F05-43DD-B8E3-E910FAC4C06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD651CC-3F05-43DD-B8E3-E910FAC4C06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD651CC-3F05-43DD-B8E3-E910FAC4C06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAF9BD8-6B6D-4138-923F-22D75061C70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAF9BD8-6B6D-4138-923F-22D75061C70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAF9BD8-6B6D-4138-923F-22D75061C70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAF9BD8-6B6D-4138-923F-22D75061C70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
