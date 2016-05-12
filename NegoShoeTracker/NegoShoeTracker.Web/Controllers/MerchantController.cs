@@ -13,9 +13,10 @@ namespace NegoShoeTracker.Web.Controllers
     {
         MerchantDA merchantDa = new MerchantDA();
         // GET: api/Merchant
-        public IEnumerable<Merchant> Get()
+        public ActionResult Get()
         {
-            return merchantDa.GetAllMerchant();
+            var data = merchantDa.GetAllMerchant();
+            return View(data);
         }
 
         // GET: api/Merchant/5

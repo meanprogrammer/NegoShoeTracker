@@ -29,5 +29,7 @@ namespace NegoShoeTracker.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<NegoShoeTracker.Library.Data.Merchant> Merchants { get; set; }
     }
 }
