@@ -18,5 +18,10 @@ namespace NegoShoeTracker.Library.Data
         {
             return context.Merchants.ToList();
         }
+
+        public Merchant GetOne(int id)
+        {
+            return context.Merchants.Where(c => c.MerchantID == id).FirstOrDefault();
+        }
     }
 }
