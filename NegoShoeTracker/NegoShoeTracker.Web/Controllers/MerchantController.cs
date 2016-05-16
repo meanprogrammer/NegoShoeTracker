@@ -20,9 +20,10 @@ namespace NegoShoeTracker.Web.Controllers
         }
 
         // GET: api/Merchant/5
-        public string GetOne(int id)
+        public ActionResult GetOne(int id)
         {
-            return "value";
+            var data = merchantDa.GetOne(id);
+            return View(data);
         }
 
         // POST: api/Merchant
