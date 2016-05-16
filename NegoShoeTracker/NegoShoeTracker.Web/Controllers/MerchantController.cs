@@ -27,10 +27,12 @@ namespace NegoShoeTracker.Web.Controllers
         }
 
         // POST: api/Merchant
-        public void Post([FromBody]string value)
+        //[System.Web.Mvc.HttpPost]
+        public ActionResult Create([FromBody]string value)
         {
+            return View();
         }
-
+        
         // PUT: api/Merchant/5
         public void Put(int id, [FromBody]string value)
         {

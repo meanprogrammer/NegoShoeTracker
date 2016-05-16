@@ -242,6 +242,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Merchant\Get.cshtml" />
     <Content Include="Views\Merchant\GetOne.cshtml" />
+    <Content Include="Views\Merchant\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
