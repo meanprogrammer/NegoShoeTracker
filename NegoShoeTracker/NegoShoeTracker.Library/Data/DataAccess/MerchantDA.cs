@@ -23,5 +23,13 @@ namespace NegoShoeTracker.Library.Data
         {
             return context.Merchants.Where(c => c.MerchantID == id).FirstOrDefault();
         }
+
+        public bool SaveMerchant(Merchant merchant)
+        {
+            this.context.Merchants.InsertOnSubmit(merchant);
+            var result = this.context.GetChangeSet().Inserts.Count;
+            this.context.SubmitChanges();
+            return result > 0;
+        }
     }
 }

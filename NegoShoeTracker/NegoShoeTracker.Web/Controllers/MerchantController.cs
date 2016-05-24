@@ -26,10 +26,18 @@ namespace NegoShoeTracker.Web.Controllers
             return View(data);
         }
 
-        // POST: api/Merchant
-        //[System.Web.Mvc.HttpPost]
-        public ActionResult Create([FromBody]string value)
+        public ActionResult Create()
         {
+            return View();
+        }
+
+        // POST: api/Merchant
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Create(Merchant merchant)
+        {
+            bool result = merchantDa.SaveMerchant(merchant);
+            string msg = result ? "Saved Successfully." : "Saving Failed.";
+            ViewBag.Message = msg;
             return View();
         }
         
