@@ -44,6 +44,7 @@
     <Compile Include="Data\DataAccess\MerchantDA.cs" />
     <Compile Include="Data\DataAccess\ItemStatusDA.cs" />
     <Compile Include="Data\DataAccess\ShipmentDA.cs" />
+    <Compile Include="Data\DataAccess\ShipmentItemDA.cs" />
     <Compile Include="Data\NegoShoeDb.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
