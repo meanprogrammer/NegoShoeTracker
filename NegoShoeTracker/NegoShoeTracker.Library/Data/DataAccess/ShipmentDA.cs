@@ -13,6 +13,11 @@ namespace NegoShoeTracker.Library.Data.DataAccess
             return this.context.Shipments.ToList();
         }
 
+        public Shipment GetOne(int id)
+        {
+            return this.context.Shipments.Where(c => c.RecordID == id).FirstOrDefault();
+        }
+
         public bool SaveShipment(Shipment shipment)
         {
             var result = 0;

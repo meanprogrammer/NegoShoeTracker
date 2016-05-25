@@ -21,7 +21,8 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Shipment/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var result = shipmentDA.GetOne(id);
+            return View(result);
         }
 
         // GET: Shipment/Create
