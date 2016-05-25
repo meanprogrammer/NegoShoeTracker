@@ -30,9 +30,18 @@ namespace NegoShoeTracker.Library.Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertItemStatus(ItemStatus instance);
+    partial void UpdateItemStatus(ItemStatus instance);
+    partial void DeleteItemStatus(ItemStatus instance);
+    partial void InsertShipmentItem(ShipmentItem instance);
+    partial void UpdateShipmentItem(ShipmentItem instance);
+    partial void DeleteShipmentItem(ShipmentItem instance);
     partial void InsertMerchant(Merchant instance);
     partial void UpdateMerchant(Merchant instance);
     partial void DeleteMerchant(Merchant instance);
+    partial void InsertShipment(Shipment instance);
+    partial void UpdateShipment(Shipment instance);
+    partial void DeleteShipment(Shipment instance);
     #endregion
 		
 		public NegoShoeDbDataContext() : 
@@ -65,11 +74,423 @@ namespace NegoShoeTracker.Library.Data
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<ItemStatus> ItemStatus
+		{
+			get
+			{
+				return this.GetTable<ItemStatus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ShipmentItem> ShipmentItems
+		{
+			get
+			{
+				return this.GetTable<ShipmentItem>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Merchant> Merchants
 		{
 			get
 			{
 				return this.GetTable<Merchant>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Shipment> Shipments
+		{
+			get
+			{
+				return this.GetTable<Shipment>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemStatus")]
+	public partial class ItemStatus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RecordID;
+		
+		private string _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRecordIDChanging(int value);
+    partial void OnRecordIDChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public ItemStatus()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RecordID
+		{
+			get
+			{
+				return this._RecordID;
+			}
+			set
+			{
+				if ((this._RecordID != value))
+				{
+					this.OnRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecordID = value;
+					this.SendPropertyChanged("RecordID");
+					this.OnRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShipmentItem")]
+	public partial class ShipmentItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RecordID;
+		
+		private int _ShipmentID;
+		
+		private string _ItemName;
+		
+		private int _MerchantID;
+		
+		private int _Quantity;
+		
+		private double _BoughtPrice;
+		
+		private double _TargetPrice;
+		
+		private double _SoldPrice;
+		
+		private int _StatusID;
+		
+		private System.Nullable<double> _CurrentExchangeRate;
+		
+		private string _Notes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRecordIDChanging(int value);
+    partial void OnRecordIDChanged();
+    partial void OnShipmentIDChanging(int value);
+    partial void OnShipmentIDChanged();
+    partial void OnItemNameChanging(string value);
+    partial void OnItemNameChanged();
+    partial void OnMerchantIDChanging(int value);
+    partial void OnMerchantIDChanged();
+    partial void OnQuantityChanging(int value);
+    partial void OnQuantityChanged();
+    partial void OnBoughtPriceChanging(double value);
+    partial void OnBoughtPriceChanged();
+    partial void OnTargetPriceChanging(double value);
+    partial void OnTargetPriceChanged();
+    partial void OnSoldPriceChanging(double value);
+    partial void OnSoldPriceChanged();
+    partial void OnStatusIDChanging(int value);
+    partial void OnStatusIDChanged();
+    partial void OnCurrentExchangeRateChanging(System.Nullable<double> value);
+    partial void OnCurrentExchangeRateChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    #endregion
+		
+		public ShipmentItem()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RecordID
+		{
+			get
+			{
+				return this._RecordID;
+			}
+			set
+			{
+				if ((this._RecordID != value))
+				{
+					this.OnRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecordID = value;
+					this.SendPropertyChanged("RecordID");
+					this.OnRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentID", DbType="Int NOT NULL")]
+		public int ShipmentID
+		{
+			get
+			{
+				return this._ShipmentID;
+			}
+			set
+			{
+				if ((this._ShipmentID != value))
+				{
+					this.OnShipmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._ShipmentID = value;
+					this.SendPropertyChanged("ShipmentID");
+					this.OnShipmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ItemName
+		{
+			get
+			{
+				return this._ItemName;
+			}
+			set
+			{
+				if ((this._ItemName != value))
+				{
+					this.OnItemNameChanging(value);
+					this.SendPropertyChanging();
+					this._ItemName = value;
+					this.SendPropertyChanged("ItemName");
+					this.OnItemNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MerchantID", DbType="Int NOT NULL")]
+		public int MerchantID
+		{
+			get
+			{
+				return this._MerchantID;
+			}
+			set
+			{
+				if ((this._MerchantID != value))
+				{
+					this.OnMerchantIDChanging(value);
+					this.SendPropertyChanging();
+					this._MerchantID = value;
+					this.SendPropertyChanged("MerchantID");
+					this.OnMerchantIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
+		public int Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BoughtPrice", DbType="Float NOT NULL")]
+		public double BoughtPrice
+		{
+			get
+			{
+				return this._BoughtPrice;
+			}
+			set
+			{
+				if ((this._BoughtPrice != value))
+				{
+					this.OnBoughtPriceChanging(value);
+					this.SendPropertyChanging();
+					this._BoughtPrice = value;
+					this.SendPropertyChanged("BoughtPrice");
+					this.OnBoughtPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TargetPrice", DbType="Float NOT NULL")]
+		public double TargetPrice
+		{
+			get
+			{
+				return this._TargetPrice;
+			}
+			set
+			{
+				if ((this._TargetPrice != value))
+				{
+					this.OnTargetPriceChanging(value);
+					this.SendPropertyChanging();
+					this._TargetPrice = value;
+					this.SendPropertyChanged("TargetPrice");
+					this.OnTargetPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoldPrice", DbType="Float NOT NULL")]
+		public double SoldPrice
+		{
+			get
+			{
+				return this._SoldPrice;
+			}
+			set
+			{
+				if ((this._SoldPrice != value))
+				{
+					this.OnSoldPriceChanging(value);
+					this.SendPropertyChanging();
+					this._SoldPrice = value;
+					this.SendPropertyChanged("SoldPrice");
+					this.OnSoldPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID", DbType="Int NOT NULL")]
+		public int StatusID
+		{
+			get
+			{
+				return this._StatusID;
+			}
+			set
+			{
+				if ((this._StatusID != value))
+				{
+					this.OnStatusIDChanging(value);
+					this.SendPropertyChanging();
+					this._StatusID = value;
+					this.SendPropertyChanged("StatusID");
+					this.OnStatusIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentExchangeRate", DbType="Float")]
+		public System.Nullable<double> CurrentExchangeRate
+		{
+			get
+			{
+				return this._CurrentExchangeRate;
+			}
+			set
+			{
+				if ((this._CurrentExchangeRate != value))
+				{
+					this.OnCurrentExchangeRateChanging(value);
+					this.SendPropertyChanging();
+					this._CurrentExchangeRate = value;
+					this.SendPropertyChanged("CurrentExchangeRate");
+					this.OnCurrentExchangeRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -183,6 +604,284 @@ namespace NegoShoeTracker.Library.Data
 					this._Description = value;
 					this.SendPropertyChanged("Description");
 					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Shipment")]
+	public partial class Shipment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RecordID;
+		
+		private int _ShipmentNumber;
+		
+		private string _ShipmentName;
+		
+		private System.DateTime _ArrivalDate;
+		
+		private double _SalexTax;
+		
+		private double _ShippingCost;
+		
+		private double _ShoppingCharge;
+		
+		private double _Profit;
+		
+		private double _CurrentExchangeRate;
+		
+		private string _Notes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRecordIDChanging(int value);
+    partial void OnRecordIDChanged();
+    partial void OnShipmentNumberChanging(int value);
+    partial void OnShipmentNumberChanged();
+    partial void OnShipmentNameChanging(string value);
+    partial void OnShipmentNameChanged();
+    partial void OnArrivalDateChanging(System.DateTime value);
+    partial void OnArrivalDateChanged();
+    partial void OnSalexTaxChanging(double value);
+    partial void OnSalexTaxChanged();
+    partial void OnShippingCostChanging(double value);
+    partial void OnShippingCostChanged();
+    partial void OnShoppingChargeChanging(double value);
+    partial void OnShoppingChargeChanged();
+    partial void OnProfitChanging(double value);
+    partial void OnProfitChanged();
+    partial void OnCurrentExchangeRateChanging(double value);
+    partial void OnCurrentExchangeRateChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    #endregion
+		
+		public Shipment()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RecordID
+		{
+			get
+			{
+				return this._RecordID;
+			}
+			set
+			{
+				if ((this._RecordID != value))
+				{
+					this.OnRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecordID = value;
+					this.SendPropertyChanged("RecordID");
+					this.OnRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentNumber", DbType="Int NOT NULL")]
+		public int ShipmentNumber
+		{
+			get
+			{
+				return this._ShipmentNumber;
+			}
+			set
+			{
+				if ((this._ShipmentNumber != value))
+				{
+					this.OnShipmentNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ShipmentNumber = value;
+					this.SendPropertyChanged("ShipmentNumber");
+					this.OnShipmentNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ShipmentName
+		{
+			get
+			{
+				return this._ShipmentName;
+			}
+			set
+			{
+				if ((this._ShipmentName != value))
+				{
+					this.OnShipmentNameChanging(value);
+					this.SendPropertyChanging();
+					this._ShipmentName = value;
+					this.SendPropertyChanged("ShipmentName");
+					this.OnShipmentNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrivalDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ArrivalDate
+		{
+			get
+			{
+				return this._ArrivalDate;
+			}
+			set
+			{
+				if ((this._ArrivalDate != value))
+				{
+					this.OnArrivalDateChanging(value);
+					this.SendPropertyChanging();
+					this._ArrivalDate = value;
+					this.SendPropertyChanged("ArrivalDate");
+					this.OnArrivalDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalexTax", DbType="Float NOT NULL")]
+		public double SalexTax
+		{
+			get
+			{
+				return this._SalexTax;
+			}
+			set
+			{
+				if ((this._SalexTax != value))
+				{
+					this.OnSalexTaxChanging(value);
+					this.SendPropertyChanging();
+					this._SalexTax = value;
+					this.SendPropertyChanged("SalexTax");
+					this.OnSalexTaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingCost", DbType="Float NOT NULL")]
+		public double ShippingCost
+		{
+			get
+			{
+				return this._ShippingCost;
+			}
+			set
+			{
+				if ((this._ShippingCost != value))
+				{
+					this.OnShippingCostChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingCost = value;
+					this.SendPropertyChanged("ShippingCost");
+					this.OnShippingCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShoppingCharge", DbType="Float NOT NULL")]
+		public double ShoppingCharge
+		{
+			get
+			{
+				return this._ShoppingCharge;
+			}
+			set
+			{
+				if ((this._ShoppingCharge != value))
+				{
+					this.OnShoppingChargeChanging(value);
+					this.SendPropertyChanging();
+					this._ShoppingCharge = value;
+					this.SendPropertyChanged("ShoppingCharge");
+					this.OnShoppingChargeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profit", DbType="Float NOT NULL")]
+		public double Profit
+		{
+			get
+			{
+				return this._Profit;
+			}
+			set
+			{
+				if ((this._Profit != value))
+				{
+					this.OnProfitChanging(value);
+					this.SendPropertyChanging();
+					this._Profit = value;
+					this.SendPropertyChanged("Profit");
+					this.OnProfitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentExchangeRate", DbType="Float NOT NULL")]
+		public double CurrentExchangeRate
+		{
+			get
+			{
+				return this._CurrentExchangeRate;
+			}
+			set
+			{
+				if ((this._CurrentExchangeRate != value))
+				{
+					this.OnCurrentExchangeRateChanging(value);
+					this.SendPropertyChanging();
+					this._CurrentExchangeRate = value;
+					this.SendPropertyChanged("CurrentExchangeRate");
+					this.OnCurrentExchangeRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
 				}
 			}
 		}

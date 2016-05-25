@@ -241,7 +241,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Merchant\Get.cshtml" />
-    <Content Include="Views\Merchant\GetOne.cshtml" />
+    <Content Include="Views\Merchant\Edit.cshtml" />
     <Content Include="Views\Merchant\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

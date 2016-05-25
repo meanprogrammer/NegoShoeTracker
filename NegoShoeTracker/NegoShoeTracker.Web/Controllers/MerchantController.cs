@@ -20,7 +20,7 @@ namespace NegoShoeTracker.Web.Controllers
         }
 
         // GET: api/Merchant/5
-        public ActionResult GetOne(int id)
+        public ActionResult Edit(int id)
         {
             var data = merchantDa.GetOne(id);
             return View(data);
@@ -38,6 +38,7 @@ namespace NegoShoeTracker.Web.Controllers
             bool result = merchantDa.SaveMerchant(merchant);
             string msg = result ? "Saved Successfully." : "Saving Failed.";
             ViewBag.Message = msg;
+            ModelState.Clear();
             return View();
         }
         
