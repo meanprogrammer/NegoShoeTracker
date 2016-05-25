@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NegoShoeTracker.Library.Data.Shipment>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Get</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Shipment #
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipmentNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }) |
+                @Html.ActionLink("Details", "GetOne", new { id = item.RecordID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RecordID })
+            </td>
+        </tr>
+    }
+
+</table>

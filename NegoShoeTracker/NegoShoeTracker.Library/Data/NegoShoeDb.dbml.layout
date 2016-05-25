@@ -2,28 +2,28 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="NegoShoeDb">
   <DataContextMoniker Name="/NegoShoeDbDataContext" />
   <nestedChildShapes>
-    <classShape Id="2b66a3c0-9d20-407b-8033-3605e4e8bd89" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="b49c758c-7fcf-4d39-a2b0-12226750dce0" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/NegoShoeDbDataContext/ItemStatus" />
       <nestedChildShapes>
-        <elementListCompartment Id="467d6e1f-fe33-4969-85df-77c434dae4ae" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="81f68f06-0577-4e72-9bca-fe28ee6d4b47" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="612df471-da2a-42cd-8978-0d119aa67048" absoluteBounds="0.75, 2.75, 2, 2.9247054036458326">
+    <classShape Id="bf863dc6-b426-4c46-a634-af29d81957d1" absoluteBounds="0.75, 2.75, 2, 2.9247054036458326">
       <DataClassMoniker Name="/NegoShoeDbDataContext/ShipmentItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="948a0ea4-6e38-437b-b38f-43e8daeaed0a" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="50d606b3-4af2-49e0-b307-ec0546e4e575" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7c9b4c6b-45a1-4e7c-9464-1c1a46036629" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="bd2bb1e3-818e-4a00-8bb8-254152ec5e8c" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/NegoShoeDbDataContext/Merchant" />
       <nestedChildShapes>
-        <elementListCompartment Id="ba23bcfd-1339-4cad-907e-69811b97f78d" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="03e93401-bd58-40c2-b156-34d9eecd56f2" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="65450116-eb08-4301-8483-1d8ec0032123" absoluteBounds="3.75, 3.75, 2, 2.7324039713541666">
+    <classShape Id="954e96bc-13ec-41df-a10b-77e60e1f249e" absoluteBounds="3.75, 3.75, 2, 2.7324039713541666">
       <DataClassMoniker Name="/NegoShoeDbDataContext/Shipment" />
       <nestedChildShapes>
-        <elementListCompartment Id="e82a3168-0597-440a-9cf0-8d74a19a21cc" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3cfbfb04-c537-4878-8811-acd8b1e05192" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
