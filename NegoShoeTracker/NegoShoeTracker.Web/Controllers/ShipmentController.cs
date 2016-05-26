@@ -1,4 +1,5 @@
-﻿using NegoShoeTracker.Library.Data.DataAccess;
+﻿using NegoShoeTracker.Library.Data;
+using NegoShoeTracker.Library.Data.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,17 +51,18 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Shipment/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var result = shipmentDA.GetOne(id);
+            return View(result);
         }
 
         // POST: Shipment/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Shipment shipment)
         {
             try
             {
-                // TODO: Add update logic here
-
+                var result = shipmentDA.UpdateShipment(shipment, id);
+                TempData.Add("updateMessage", "test");
                 return RedirectToAction("Index");
             }
             catch

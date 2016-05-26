@@ -635,7 +635,7 @@ namespace NegoShoeTracker.Library.Data
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _RecordID;
+		private int _ShipmentID;
 		
 		private int _ShipmentNumber;
 		
@@ -659,8 +659,8 @@ namespace NegoShoeTracker.Library.Data
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnRecordIDChanging(int value);
-    partial void OnRecordIDChanged();
+    partial void OnShipmentIDChanging(int value);
+    partial void OnShipmentIDChanged();
     partial void OnShipmentNumberChanging(int value);
     partial void OnShipmentNumberChanged();
     partial void OnShipmentNameChanging(string value);
@@ -686,22 +686,22 @@ namespace NegoShoeTracker.Library.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int RecordID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ShipmentID
 		{
 			get
 			{
-				return this._RecordID;
+				return this._ShipmentID;
 			}
 			set
 			{
-				if ((this._RecordID != value))
+				if ((this._ShipmentID != value))
 				{
-					this.OnRecordIDChanging(value);
+					this.OnShipmentIDChanging(value);
 					this.SendPropertyChanging();
-					this._RecordID = value;
-					this.SendPropertyChanged("RecordID");
-					this.OnRecordIDChanged();
+					this._ShipmentID = value;
+					this.SendPropertyChanged("ShipmentID");
+					this.OnShipmentIDChanged();
 				}
 			}
 		}

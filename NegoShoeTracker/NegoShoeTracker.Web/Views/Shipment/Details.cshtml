@@ -1,0 +1,90 @@
+﻿@model NegoShoeTracker.Library.Data.Shipment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shipment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipmentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipmentNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalexTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalexTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippingCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippingCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShoppingCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShoppingCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentExchangeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentExchangeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShipmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

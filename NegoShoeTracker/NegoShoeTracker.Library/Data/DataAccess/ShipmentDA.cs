@@ -15,7 +15,7 @@ namespace NegoShoeTracker.Library.Data.DataAccess
 
         public Shipment GetOne(int id)
         {
-            return this.context.Shipments.Where(c => c.RecordID == id).FirstOrDefault();
+            return this.context.Shipments.Where(c => c.ShipmentID == id).FirstOrDefault();
         }
 
         public bool SaveShipment(Shipment shipment)
@@ -29,15 +29,25 @@ namespace NegoShoeTracker.Library.Data.DataAccess
 
         public bool UpdateShipment(Shipment _shipment, int id)
         {
-            Shipment shipment = this.context.Shipments.Where(c => c.RecordID == id).FirstOrDefault();
+            Shipment shipment = this.context.Shipments.Single(c => c.ShipmentID == id);
             if (shipment != null)
             {
-                shipment = _shipment;
+                shipment.ArrivalDate = _shipment.ArrivalDate;
+                shipment.Notes = _shipment.Notes;
+                shipment.Profit = _shipment.Profit;
+                shipment.SalexTax = _shipment.SalexTax;
+                shipment.ShipmentName = _shipment.ShipmentName;
+                shipment.ShipmentNumber = _shipment.ShipmentNumber;
+                shipment.ShippingCost = _shipment.ShippingCost;
+                shipment.ShoppingCharge = _shipment.ShoppingCharge;
+                shipment.CurrentExchangeRate = _shipment.CurrentExchangeRate;
+                //this.context.Shipments.u
             }
-
-            var result = this.context.GetChangeSet().Updates.Count;
+            var result = this.context.GetChangeSet();
             this.context.SubmitChanges();
-            return result > 0;
+
+
+            return result.Updates.Count() > 0;
         }
     }
 }

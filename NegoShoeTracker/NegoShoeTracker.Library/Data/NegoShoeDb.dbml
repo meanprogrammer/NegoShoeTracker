@@ -31,7 +31,7 @@
   </Table>
   <Table Name="dbo.Shipment" Member="Shipments">
     <Type Name="Shipment">
-      <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShipmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ShipmentNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ShipmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ArrivalDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />

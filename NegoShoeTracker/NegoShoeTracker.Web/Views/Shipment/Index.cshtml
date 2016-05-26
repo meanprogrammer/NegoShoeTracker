@@ -6,7 +6,7 @@
 <h2>Index</h2>
 
 <h2>Get</h2>
-
+<h1>@TempData["updateMessage"]</h1>
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.ShipmentNumber)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }) |
-                @Html.ActionLink("Details", "GetOne", new { id = item.RecordID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RecordID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ShipmentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ShipmentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ShipmentID })
             </td>
         </tr>
     }

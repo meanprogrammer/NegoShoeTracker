@@ -31,5 +31,7 @@ namespace NegoShoeTracker.Web.Models
         }
 
         public System.Data.Entity.DbSet<NegoShoeTracker.Library.Data.Merchant> Merchants { get; set; }
+
+        public System.Data.Entity.DbSet<NegoShoeTracker.Library.Data.Shipment> Shipments { get; set; }
     }
 }
