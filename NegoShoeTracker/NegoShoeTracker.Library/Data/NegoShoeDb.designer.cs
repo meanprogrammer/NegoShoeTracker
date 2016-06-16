@@ -20,7 +20,7 @@ namespace NegoShoeTracker.Library.Data
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
+	using System.ComponentModel.DataAnnotations;
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NegoShoe")]
 	public partial class NegoShoeDbDataContext : System.Data.Linq.DataContext
@@ -255,6 +255,7 @@ namespace NegoShoeTracker.Library.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+        [Key]
 		public int RecordID
 		{
 			get

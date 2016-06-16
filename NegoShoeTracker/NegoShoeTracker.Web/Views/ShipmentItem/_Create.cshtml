@@ -1,0 +1,36 @@
+﻿@model NegoShoeTracker.Library.Data.ShipmentItem
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Shipment Item</h3>
+</div>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "modal-form" }))
+{
+    @Html.ValidationSummary()
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("ItemName", "Item Name", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Undo</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+
+}
+
+<br />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
