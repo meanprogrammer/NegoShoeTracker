@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.notes {
+    max-width:100% !important;
+}
+
+.default-width {
+    max-width:100% !important;
+}
