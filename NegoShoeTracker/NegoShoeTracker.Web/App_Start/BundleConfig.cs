@@ -25,10 +25,14 @@ namespace NegoShoeTracker.Web
                       "~/Scripts/DatePickerReady.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/modalform").Include(
+                       "~/Scripts/modalform.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                        "~/Content/bootstrap-datepicker3.css",
                       "~/Content/site.css"));
+            
 
         }
     }

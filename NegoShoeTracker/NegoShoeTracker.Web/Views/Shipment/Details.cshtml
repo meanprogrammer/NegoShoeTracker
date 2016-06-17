@@ -87,13 +87,18 @@
 
 <div class="row">
     <div class="col-md-12">
-        @Html.ActionLink("Create", "Create", null, null, new { id = "btnCreate", @class = "btn btn-default" })
+        @Html.ActionLink("Create", "Create", "ShipmentItem", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-default" })
     </div>
 </div>
 
-<div id="dialogDiv" class="modal fade in">
-    <div id="dialogContent"></div>
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
 </div>
+
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ShipmentID }) |
@@ -103,45 +108,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
-    <script type="text/javascript">
-    $(function () {
-
-        //Optional: turn the chache off
-        $.ajaxSetup({ cache: false });
-
-        $("#btnCreate").click(function () {
-            $('#dialogContent').load("/ShipmentItem/Create", function () {
-                $('#dialogDiv').modal({
-                    backdrop: 'static',
-                    keyboard: true
-                }, 'show');
-                bindForm(this);
-            });
-            return false;
-        });
-    });
-
-    function bindForm(dialog) {
-        $("form", dialog).submit(function () {
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (result) {
-                    if (result.success) {
-                        $("#dialogDiv").modal("hide");
-                        // Refresh:
-                        // location.reload();
-                    } else {
-                        $("#dialogContent").html(result);
-                        bindForm();
-                    }
-                }
-            });
-            return false;
-        });
-    }
-
-    </script>
+    @Scripts.Render("~/bundles/modalform")
 }
