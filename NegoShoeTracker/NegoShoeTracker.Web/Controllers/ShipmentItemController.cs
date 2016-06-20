@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NegoShoeTracker.Library.Data;
+using NegoShoeTracker.Library.Data.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,9 @@ namespace NegoShoeTracker.Web.Controllers
 {
     public class ShipmentItemController : Controller
     {
+        MerchantDA merchant = new MerchantDA();
+        ItemStatusDA status = new ItemStatusDA();
+        ShipmentItemDA shipment = new ShipmentItemDA(); 
         // GET: ShipmentItem
         public ActionResult Index()
         {
@@ -23,17 +28,35 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: ShipmentItem/Create
         public ActionResult Create()
         {
+            var currentId = Request.UrlReferrer.Segments.LastOrDefault();
+            ViewData["merchants"] = AppendBlankMerchant( merchant.GetAllMerchant() );
+            ViewData["statuses"] = AppendBlankStatus( status.GetAllItemStatus() );
+            ViewData["shipmentId"] = currentId;
             return PartialView("_Create");
+        }
+
+        private List<ItemStatus> AppendBlankStatus(List<ItemStatus> list)
+        { 
+            ItemStatus s = new ItemStatus() { RecordID = 0, Status ="-- SELECT --" };
+            list.Insert(0, s);
+            return list;
+        }
+
+        private List<Merchant> AppendBlankMerchant(List<Merchant> list)
+        { 
+            Merchant blank = new Merchant() { MerchantID = 0, Name = "-- SELECT --" };
+            list.Insert(0, blank);
+            return list;
         }
 
         // POST: ShipmentItem/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ShipmentItem item)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                shipment.SaveShipmentItem(item);
                 return RedirectToAction("Index");
             }
             catch
@@ -48,7 +71,7 @@ namespace NegoShoeTracker.Web.Controllers
             return View();
         }
 
-        // POST: ShipmentItem/Edit/5
+        // POST: ShipmenIttem/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {

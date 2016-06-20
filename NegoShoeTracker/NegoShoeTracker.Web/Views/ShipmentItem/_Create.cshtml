@@ -1,4 +1,8 @@
-﻿@model NegoShoeTracker.Library.Data.ShipmentItem
+﻿@using System.Collections.Generic;
+@using NegoShoeTracker.Library.Data;
+
+@model NegoShoeTracker.Library.Data.ShipmentItem
+
 
 
 <div class="modal-header">
@@ -6,7 +10,7 @@
     <h3 id="myModalLabel">Add Shipment Item</h3>
 </div>
 
-@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "modal-form" }))
+@using (Html.BeginForm("Create", "ShipmentItem", FormMethod.Post, new { @class = "modal-form" }))
 {
     @Html.ValidationSummary()
 
@@ -18,10 +22,56 @@
                 @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-6">
+                @Html.Label("MerchantID", "Merchant", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("MerchantID", new SelectList((IEnumerable<Merchant>)ViewData["merchants"], "MerchantID", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MerchantID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Quantity", "Quantity", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Quantity,  new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("BoughtPrice", "Price Bought", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.BoughtPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BoughtPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("TargetPrice", "Target Price", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.TargetPrice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TargetPrice, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Sold Price", "Price Sold", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.SoldPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoldPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("StatusID", "Status", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("StatusID", new SelectList((IEnumerable<ItemStatus>)ViewData["statuses"], "RecordID", "Status"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StatusID, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("CurrentExchangeRate", "Exchange Rate", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.CurrentExchangeRate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CurrentExchangeRate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Label("Notes", "Notes", htmlAttributes: new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Notes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
-
+    @Html.Hidden("ShipmentID", @ViewData["shipmentId"])
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         <button class="btn btn-primary" type="submit">Save</button>

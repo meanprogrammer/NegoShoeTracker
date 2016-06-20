@@ -1,4 +1,4 @@
-﻿using NegoShoeTracker.Library.Data;
+﻿ using NegoShoeTracker.Library.Data;
 using NegoShoeTracker.Library.Data.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -34,12 +34,12 @@ namespace NegoShoeTracker.Web.Controllers
 
         // POST: Shipment/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Shipment shipment)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                shipmentDA.SaveShipment(shipment);
                 return RedirectToAction("Index");
             }
             catch
