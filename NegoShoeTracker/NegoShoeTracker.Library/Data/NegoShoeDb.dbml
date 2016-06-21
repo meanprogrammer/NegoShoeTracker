@@ -9,7 +9,7 @@
   <Table Name="dbo.ShipmentItem" Member="ShipmentItems">
     <Type Name="ShipmentItem">
       <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ShipmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ItemName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="MerchantID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -19,6 +19,7 @@
       <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CurrentExchangeRate" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Shipment_ShipmentItem" Member="Shipment" ThisKey="SID" OtherKey="ID" Type="Shipment" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Merchant" Member="Merchants">
@@ -31,7 +32,7 @@
   </Table>
   <Table Name="dbo.Shipment" Member="Shipments">
     <Type Name="Shipment">
-      <Column Name="ShipmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ShipmentNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ShipmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ArrivalDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -41,6 +42,7 @@
       <Column Name="Profit" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="CurrentExchangeRate" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Shipment_ShipmentItem" Member="ShipmentItems" ThisKey="ID" OtherKey="SID" Type="ShipmentItem" />
     </Type>
   </Table>
 </Database>

@@ -20,7 +20,7 @@ namespace NegoShoeTracker.Library.Data
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	using System.ComponentModel.DataAnnotations;
+	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NegoShoe")]
 	public partial class NegoShoeDbDataContext : System.Data.Linq.DataContext
@@ -201,7 +201,7 @@ namespace NegoShoeTracker.Library.Data
 		
 		private int _RecordID;
 		
-		private int _ShipmentID;
+		private int _SID;
 		
 		private string _ItemName;
 		
@@ -221,14 +221,16 @@ namespace NegoShoeTracker.Library.Data
 		
 		private string _Notes;
 		
+		private EntityRef<Shipment> _Shipment;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnRecordIDChanging(int value);
     partial void OnRecordIDChanged();
-    partial void OnShipmentIDChanging(int value);
-    partial void OnShipmentIDChanged();
+    partial void OnSIDChanging(int value);
+    partial void OnSIDChanged();
     partial void OnItemNameChanging(string value);
     partial void OnItemNameChanged();
     partial void OnMerchantIDChanging(int value);
@@ -251,11 +253,11 @@ namespace NegoShoeTracker.Library.Data
 		
 		public ShipmentItem()
 		{
+			this._Shipment = default(EntityRef<Shipment>);
 			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-        [Key]
 		public int RecordID
 		{
 			get
@@ -275,22 +277,26 @@ namespace NegoShoeTracker.Library.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentID", DbType="Int NOT NULL")]
-		public int ShipmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SID", DbType="Int NOT NULL")]
+		public int SID
 		{
 			get
 			{
-				return this._ShipmentID;
+				return this._SID;
 			}
 			set
 			{
-				if ((this._ShipmentID != value))
+				if ((this._SID != value))
 				{
-					this.OnShipmentIDChanging(value);
+					if (this._Shipment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSIDChanging(value);
 					this.SendPropertyChanging();
-					this._ShipmentID = value;
-					this.SendPropertyChanged("ShipmentID");
-					this.OnShipmentIDChanged();
+					this._SID = value;
+					this.SendPropertyChanged("SID");
+					this.OnSIDChanged();
 				}
 			}
 		}
@@ -475,6 +481,40 @@ namespace NegoShoeTracker.Library.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shipment_ShipmentItem", Storage="_Shipment", ThisKey="SID", OtherKey="ID", IsForeignKey=true)]
+		public Shipment Shipment
+		{
+			get
+			{
+				return this._Shipment.Entity;
+			}
+			set
+			{
+				Shipment previousValue = this._Shipment.Entity;
+				if (((previousValue != value) 
+							|| (this._Shipment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Shipment.Entity = null;
+						previousValue.ShipmentItems.Remove(this);
+					}
+					this._Shipment.Entity = value;
+					if ((value != null))
+					{
+						value.ShipmentItems.Add(this);
+						this._SID = value.ID;
+					}
+					else
+					{
+						this._SID = default(int);
+					}
+					this.SendPropertyChanged("Shipment");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -636,7 +676,7 @@ namespace NegoShoeTracker.Library.Data
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ShipmentID;
+		private int _ID;
 		
 		private int _ShipmentNumber;
 		
@@ -656,12 +696,14 @@ namespace NegoShoeTracker.Library.Data
 		
 		private string _Notes;
 		
+		private EntitySet<ShipmentItem> _ShipmentItems;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnShipmentIDChanging(int value);
-    partial void OnShipmentIDChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
     partial void OnShipmentNumberChanging(int value);
     partial void OnShipmentNumberChanged();
     partial void OnShipmentNameChanging(string value);
@@ -684,25 +726,26 @@ namespace NegoShoeTracker.Library.Data
 		
 		public Shipment()
 		{
+			this._ShipmentItems = new EntitySet<ShipmentItem>(new Action<ShipmentItem>(this.attach_ShipmentItems), new Action<ShipmentItem>(this.detach_ShipmentItems));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ShipmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
 		{
 			get
 			{
-				return this._ShipmentID;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._ShipmentID != value))
+				if ((this._ID != value))
 				{
-					this.OnShipmentIDChanging(value);
+					this.OnIDChanging(value);
 					this.SendPropertyChanging();
-					this._ShipmentID = value;
-					this.SendPropertyChanged("ShipmentID");
-					this.OnShipmentIDChanged();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
 				}
 			}
 		}
@@ -887,6 +930,19 @@ namespace NegoShoeTracker.Library.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shipment_ShipmentItem", Storage="_ShipmentItems", ThisKey="ID", OtherKey="SID")]
+		public EntitySet<ShipmentItem> ShipmentItems
+		{
+			get
+			{
+				return this._ShipmentItems;
+			}
+			set
+			{
+				this._ShipmentItems.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -905,6 +961,18 @@ namespace NegoShoeTracker.Library.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_ShipmentItems(ShipmentItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Shipment = this;
+		}
+		
+		private void detach_ShipmentItems(ShipmentItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Shipment = null;
 		}
 	}
 }

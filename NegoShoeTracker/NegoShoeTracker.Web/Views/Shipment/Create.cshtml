@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-6">
                 @Html.Label("ArrivalDate", "Arrival Date", htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.ArrivalDate, new { htmlAttributes = new { @class = "form-control datecontrol", PlaceHolder = "Enter Arrival Date" } })
+                @Html.TextBoxFor(model => model.ArrivalDate,  htmlAttributes: new { @class = "form-control datecontrol", PlaceHolder = "Enter Arrival Date" })
                 @Html.ValidationMessageFor(model => model.ArrivalDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,4 +100,5 @@
 
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
+                @Scripts.Render("~/bundles/bootstrap")
             }

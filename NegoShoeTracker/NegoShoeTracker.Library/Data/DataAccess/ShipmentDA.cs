@@ -15,7 +15,7 @@ namespace NegoShoeTracker.Library.Data.DataAccess
 
         public Shipment GetOne(int id)
         {
-            return this.context.Shipments.Where(c => c.ShipmentID == id).FirstOrDefault();
+            return this.context.Shipments.Where(c => c.ID == id).FirstOrDefault();
         }
 
         public bool SaveShipment(Shipment shipment)
@@ -29,7 +29,7 @@ namespace NegoShoeTracker.Library.Data.DataAccess
 
         public bool UpdateShipment(Shipment _shipment, int id)
         {
-            Shipment shipment = this.context.Shipments.Single(c => c.ShipmentID == id);
+            Shipment shipment = this.context.Shipments.Single(c => c.ID == id);
             if (shipment != null)
             {
                 shipment.ArrivalDate = _shipment.ArrivalDate;

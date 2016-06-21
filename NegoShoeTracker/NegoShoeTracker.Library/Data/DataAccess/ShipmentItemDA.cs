@@ -10,7 +10,7 @@ namespace NegoShoeTracker.Library.Data.DataAccess
     {
         public List<ShipmentItem> GetAllShipmentItem(int parentId)
         {
-            return this.context.ShipmentItems.Where(c => c.ShipmentID == parentId).ToList();
+            return this.context.ShipmentItems.Where(c => c.SID == parentId).ToList();
         }
 
         public ShipmentItem GetOne(int id)

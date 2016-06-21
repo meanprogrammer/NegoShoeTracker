@@ -1,4 +1,5 @@
-﻿if (!Modernizr.inputtypes.date) {
+﻿/*
+if (!Modernizr.inputtypes.date) {
     $(function () {
 
         $(".datecontrol").datepicker().on('changeDate', function (e) {
@@ -6,3 +7,9 @@
         });
     });
 }
+
+*/
+
+$(document).ready(function () {
+        $(".datecontrol").datepicker({ format: 'dd/mm/yyyy', autoclose: true, todayBtn: 'linked' })
+});
