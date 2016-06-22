@@ -34,6 +34,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,9 +49,9 @@
     <Compile Include="Data\DataAccess\ShipmentDA.cs" />
     <Compile Include="Data\DataAccess\ShipmentItemDA.cs" />
     <Compile Include="Data\NegoShoeDb.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>NegoShoeDb.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -64,9 +66,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Data\NegoShoeDb.dbml">
+      <SubType>Designer</SubType>
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>NegoShoeDb.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\NegoShoeDb.dbml.layout">
+      <DependentUpon>NegoShoeDb.dbml</DependentUpon>
     </None>
     <None Include="NegoShoe.bak" />
     <None Include="Properties\Settings.settings">
@@ -76,11 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\NegoShoeDb.dbml.layout">
-      <DependentUpon>NegoShoeDb.dbml</DependentUpon>
-    </None>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
