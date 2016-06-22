@@ -1,4 +1,5 @@
-﻿using NegoShoeTracker.Library.Data;
+﻿using NegoShoeTracker.Library;
+using NegoShoeTracker.Library.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

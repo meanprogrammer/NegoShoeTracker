@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.EnterpriseLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,10 @@ namespace NegoShoeTracker.Library.Data
 {
     public class DbContextBase
     {
-        protected NegoShoeDbDataContext context = null;
+        public Database db { get; set; }
         public DbContextBase()
         {
-            context = new NegoShoeDbDataContext();
+            db = DatabaseFactory.CreateDatabase();
         }
     }
 }

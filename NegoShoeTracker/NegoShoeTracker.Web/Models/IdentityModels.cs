@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using NegoShoeTracker.Library;
 
 namespace NegoShoeTracker.Web.Models
 {
@@ -30,8 +31,8 @@ namespace NegoShoeTracker.Web.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<NegoShoeTracker.Library.Data.Merchant> Merchants { get; set; }
+        public System.Data.Entity.DbSet<Merchant> Merchants { get; set; }
 
-        public System.Data.Entity.DbSet<NegoShoeTracker.Library.Data.Shipment> Shipments { get; set; }
+        public System.Data.Entity.DbSet<Shipment> Shipments { get; set; }
     }
 }
