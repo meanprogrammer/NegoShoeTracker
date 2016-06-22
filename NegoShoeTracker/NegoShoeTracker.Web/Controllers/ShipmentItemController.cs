@@ -1,7 +1,6 @@
 ﻿using NegoShoeTracker.Library;
 using NegoShoeTracker.Library.Data;
 using NegoShoeTracker.Library.Data.DataAccess;
-using NegoShoeTracker.Library.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

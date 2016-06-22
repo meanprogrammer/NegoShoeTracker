@@ -30,7 +30,7 @@ namespace NegoShoeTracker.Library.Data
                         m.MerchantID = reader.GetInt32(0);
                         m.Name = reader.GetString(1);
                         m.URL = reader.GetString(2);
-                        m.Description = reader.GetString(3);
+                        m.Description = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
 
                         list.Add(m);
                     }
@@ -54,7 +54,7 @@ namespace NegoShoeTracker.Library.Data
                         m.MerchantID = reader.GetInt32(0);
                         m.Name = reader.GetString(1);
                         m.URL = reader.GetString(2);
-                        m.Description = reader.GetString(3);
+                        m.Description = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
                     }
                 }
             }

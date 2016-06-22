@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NegoShoeTracker.Library.Entities
+namespace NegoShoeTracker.Library
 {
     public class ItemStatus
     {

@@ -1,7 +1,7 @@
 ﻿@using System.Collections.Generic;
-@using NegoShoeTracker.Library.Data;
+@using NegoShoeTracker.Library;
 
-@model NegoShoeTracker.Library.Data.ShipmentItem
+@model NegoShoeTracker.Library.ShipmentItem
 
 
 
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    @Html.Hidden("ShipmentID", @ViewData["shipmentId"])
+    @Html.Hidden("SID", @ViewData["shipmentId"])
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         <button class="btn btn-primary" type="submit">Save</button>

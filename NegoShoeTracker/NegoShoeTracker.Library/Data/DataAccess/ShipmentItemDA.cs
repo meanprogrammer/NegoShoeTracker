@@ -1,5 +1,4 @@
-﻿using NegoShoeTracker.Library.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -22,17 +21,17 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                     while (reader.Read())
                     {
                         ShipmentItem item = new ShipmentItem();
-
-                        item.SID = reader.GetInt32(0);
-                        item.ItemName = reader.GetString(1);
-                        item.MerchantID = reader.GetInt32(2);
-                        item.Quantity = reader.GetInt32(3);
-                        item.BoughtPrice = reader.GetDouble(4);
-                        item.TargetPrice = reader.GetDouble(5);
-                        item.SoldPrice = reader.GetDouble(6);
-                        item.StatusID = reader.GetInt32(7);
-                        item.CurrentExchangeRate = reader.GetDouble(8);
-                        item.Notes = reader.GetString(9);
+                        item.RecordID = reader.GetInt32(0);
+                        item.SID = reader.GetInt32(1);
+                        item.ItemName = reader.GetString(2);
+                        item.MerchantID = reader.GetInt32(3);
+                        item.Quantity = reader.GetInt32(4);
+                        item.BoughtPrice = reader.GetDouble(5);
+                        item.TargetPrice = reader.GetDouble(6);
+                        item.SoldPrice = reader.GetDouble(7);
+                        item.StatusID = reader.GetInt32(8);
+                        item.CurrentExchangeRate = reader.GetDouble(9);
+                        item.Notes = reader.GetString(10);
 
                         list.Add(item);
                     }
@@ -53,16 +52,17 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                     while (reader.Read())
                     {
                         shipment = new ShipmentItem();
-                        shipment.SID = reader.GetInt32(0);
-                        shipment.ItemName = reader.GetString(1);
-                        shipment.MerchantID = reader.GetInt32(2);
-                        shipment.Quantity = reader.GetInt32(3);
-                        shipment.BoughtPrice = reader.GetDouble(4);
-                        shipment.TargetPrice = reader.GetDouble(5);
-                        shipment.SoldPrice = reader.GetDouble(6);
-                        shipment.StatusID = reader.GetInt32(7);
-                        shipment.CurrentExchangeRate = reader.GetDouble(8);
-                        shipment.Notes = reader.GetString(9);
+                        shipment.RecordID = reader.GetInt32(0);
+                        shipment.SID = reader.GetInt32(1);
+                        shipment.ItemName = reader.GetString(2);
+                        shipment.MerchantID = reader.GetInt32(3);
+                        shipment.Quantity = reader.GetInt32(4);
+                        shipment.BoughtPrice = reader.GetDouble(5);
+                        shipment.TargetPrice = reader.GetDouble(6);
+                        shipment.SoldPrice = reader.GetDouble(7);
+                        shipment.StatusID = reader.GetInt32(8);
+                        shipment.CurrentExchangeRate = reader.GetDouble(9);
+                        shipment.Notes = reader.GetString(10);
                     }
                 }
             }

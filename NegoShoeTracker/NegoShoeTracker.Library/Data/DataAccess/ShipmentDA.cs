@@ -10,6 +10,8 @@ namespace NegoShoeTracker.Library.Data.DataAccess
 {
     public class ShipmentDA : DbContextBase
     {
+        ShipmentItemDA si = new ShipmentItemDA();
+
         public List<Shipment> GetAllShipments()
         {
             List<Shipment> list = new List<Shipment>();
@@ -31,9 +33,9 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                         s.ShoppingCharge = reader.GetDouble(6);
                         s.Profit = reader.GetDouble(7);
                         s.CurrentExchangeRate = reader.GetDouble(8);
-                        s.Notes = reader.GetString(9);
+                        s.Notes = reader.IsDBNull(9) ? string.Empty : reader.GetString(9);
 
-                        s.ShipmentItems = null;
+                        s.ShipmentItems = si.GetAllShipmentItem(s.ID); 
 
                         list.Add(s);
                     }
@@ -64,9 +66,9 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                         s.ShoppingCharge = reader.GetDouble(6);
                         s.Profit = reader.GetDouble(7);
                         s.CurrentExchangeRate = reader.GetDouble(8);
-                        s.Notes = reader.GetString(9);
+                        s.Notes = reader.IsDBNull(9) ? string.Empty : reader.GetString(9);
 
-                        s.ShipmentItems = null;
+                        s.ShipmentItems = si.GetAllShipmentItem(s.ID); 
                     }
                 }
             }
