@@ -96,11 +96,23 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <th>Item Name</th>
+                <th>Merchant</th>
+                <th>Qty.</th>
+                <th>BP</th>
+                <th>TP</th>
+                <th>SP</th>
+                <th>Status</th>
             </tr>
             @foreach (var m in Model.ShipmentItems)
             {
                 <tr>
                     <td>@m.ItemName</td>
+                    <td>@m.MerchantName</td>
+                    <td>@m.Quantity</td>
+                    <td>@m.BoughtPrice</td>
+                    <td>@m.TargetPrice</td>
+                    <td>@m.SoldPrice</td>
+                    <td>@m.Status</td>
                 </tr>
             }
         </table>

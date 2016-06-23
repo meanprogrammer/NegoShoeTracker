@@ -19,5 +19,7 @@ namespace NegoShoeTracker.Library
         public int StatusID { get;set; }
         public double? CurrentExchangeRate { get;set;}
         public string Notes { get; set; }
+        public string MerchantName { get; set; }
+        public string Status { get; set; }
     }
 }

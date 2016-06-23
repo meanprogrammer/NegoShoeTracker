@@ -70,18 +70,23 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT [RecordID]
-        ///      ,[SID]
-        ///      ,[ItemName]
-        ///      ,[MerchantID]
-        ///      ,[Quantity]
-        ///      ,[BoughtPrice]
-        ///      ,[TargetPrice]
-        ///      ,[SoldPrice]
-        ///      ,[StatusID]
-        ///      ,[CurrentExchangeRate]
-        ///      ,[Notes]
-        ///  FROM [ShipmentItem] WHERE [SID] = {0}.
+        ///   Looks up a localized string similar to SELECT s.[RecordID]
+        ///      ,s.[SID]
+        ///      ,s.[ItemName]
+        ///      ,s.[MerchantID]
+        ///      ,s.[Quantity]
+        ///      ,s.[BoughtPrice]
+        ///      ,s.[TargetPrice]
+        ///      ,s.[SoldPrice]
+        ///      ,s.[StatusID]
+        ///      ,s.[CurrentExchangeRate]
+        ///      ,s.[Notes]
+        ///	  ,m.Name
+        ///	  ,st.Status
+        ///  FROM [ShipmentItem] s
+        ///  INNER JOIN Merchant m ON m.MerchantID = s.SID
+        ///  INNER JOIN ItemStatus st ON st.RecordID = s.StatusID
+        ///  WHERE [SID] = {0}.
         /// </summary>
         internal static string SQL_GetAllShipmentItem {
             get {
@@ -90,18 +95,23 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT [RecordID]
-        ///      ,[SID]
-        ///      ,[ItemName]
-        ///      ,[MerchantID]
-        ///      ,[Quantity]
-        ///      ,[BoughtPrice]
-        ///      ,[TargetPrice]
-        ///      ,[SoldPrice]
-        ///      ,[StatusID]
-        ///      ,[CurrentExchangeRate]
-        ///      ,[Notes]
-        ///  FROM [ShipmentItem] WHERE [RecordID] = {0}.
+        ///   Looks up a localized string similar to SELECT s.[RecordID]
+        ///      ,s.[SID]
+        ///      ,s.[ItemName]
+        ///      ,s.[MerchantID]
+        ///      ,s.[Quantity]
+        ///      ,s.[BoughtPrice]
+        ///      ,s.[TargetPrice]
+        ///      ,s.[SoldPrice]
+        ///      ,s.[StatusID]
+        ///      ,s.[CurrentExchangeRate]
+        ///      ,s.[Notes]
+        ///	  ,m.Name
+        ///	  ,st.Status
+        ///  FROM [ShipmentItem] s
+        ///  INNER JOIN Merchant m ON m.MerchantID = s.SID
+        ///  INNER JOIN ItemStatus st ON st.RecordID = s.StatusID
+        ///  WHERE [RecordID] = {0}.
         /// </summary>
         internal static string SQL_GetOneShipmentItem {
             get {

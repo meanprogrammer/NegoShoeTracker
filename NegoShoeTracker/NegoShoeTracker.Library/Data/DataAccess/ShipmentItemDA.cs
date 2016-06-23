@@ -32,6 +32,8 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                         item.StatusID = reader.GetInt32(8);
                         item.CurrentExchangeRate = reader.GetDouble(9);
                         item.Notes = reader.GetString(10);
+                        item.MerchantName = reader.GetString(11);
+                        item.Status = reader.GetString(12);
 
                         list.Add(item);
                     }
@@ -63,6 +65,8 @@ namespace NegoShoeTracker.Library.Data.DataAccess
                         shipment.StatusID = reader.GetInt32(8);
                         shipment.CurrentExchangeRate = reader.GetDouble(9);
                         shipment.Notes = reader.GetString(10);
+                        shipment.MerchantName = reader.GetString(11);
+                        shipment.Status = reader.GetString(12);
                     }
                 }
             }
