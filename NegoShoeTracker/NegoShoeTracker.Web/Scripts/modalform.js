@@ -28,12 +28,19 @@
 function bindForm(dialog) {
 
     $('form', dialog).submit(function () {
+
+        console.log('submit');
+        console.log(this.action);
+        console.log(this.method);
+        console.log($(this).serialize());
         $.ajax({
             url: this.action,
             type: this.method,
             data: $(this).serialize(),
             success: function (result) {
-                if (result.success) {
+                console.log(result);
+                if (result) {
+        
                     $('#myModal').modal('hide');
                     //Refresh
                     location.reload();

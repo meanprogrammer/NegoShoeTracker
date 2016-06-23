@@ -58,11 +58,11 @@ namespace NegoShoeTracker.Web.Controllers
             {
                 // TODO: Add insert logic here
                 shipment.SaveShipmentItem(item);
-                return RedirectToAction("Index");
+                return Json(true);
             }
             catch
             {
-                return View();
+                return Json(false);
             }
         }
 
