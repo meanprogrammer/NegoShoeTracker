@@ -9,80 +9,39 @@
 <div>
     <h4>Shipment</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ShipmentNumber)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ShipmentNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShipmentName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShipmentName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrivalDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ArrivalDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SalexTax)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SalexTax)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShippingCost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShippingCost)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShoppingCharge)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShoppingCharge)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Profit)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Profit)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentExchangeRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentExchangeRate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-
-    </dl>
+    <table class="table">
+        <tr>
+            <td>Shipment #</td>
+            <td colspan="3">@Html.DisplayFor(model => model.ShipmentNumber)</td>
+        </tr>
+        <tr>
+            <td>Shipment Name</td>
+            <td>@Html.DisplayFor(model => model.ShipmentName)</td>
+            <td>Arrival Date</td>
+            <td>@Html.DisplayFor(model => model.ArrivalDate)</td>
+        </tr>
+        <tr>
+            <td>Shipping Cost</td>
+            <td>@Html.DisplayFor(model => model.ShippingCost)</td>
+            <td>Sales Tax</td>
+            <td>@Html.DisplayFor(model => model.SalexTax)</td>
+        </tr>
+        <tr>
+            <td>Shopping Charge</td>
+            <td>@Html.DisplayFor(model => model.ShoppingCharge)</td>
+            <td>Exchange Rate</td>
+            <td>@Html.DisplayFor(model => model.CurrentExchangeRate)</td>
+        </tr>
+        <tr>
+            <td>Profit</td>
+            <td colspan="3">@Html.DisplayFor(model => model.Profit)</td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">@Html.DisplayFor(model => model.Notes)</td>
+        </tr>
+    </table>
 </div>
 
 <div class="row">
@@ -90,7 +49,7 @@
         @Html.ActionLink("Add Shipment Item", "Create", "ShipmentItem", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-default" })
     </div>
 </div>
-
+<br />
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-striped">
