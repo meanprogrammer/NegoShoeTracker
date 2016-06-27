@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NegoShoeTracker.Library.Data
+namespace NegoShoeTracker.Library
 {
     public class DbContextBase
     {

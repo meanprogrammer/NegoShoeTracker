@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NegoShoeTracker.Library.Data.DataAccess
+namespace NegoShoeTracker.Library
 {
     public class ShipmentItemDA : DbContextBase
     {
