@@ -43,6 +43,7 @@ function bindForm(dialog) {
         
                     $('#myModal').modal('hide');
                     //Refresh
+                    console.log('recalc');
                     location.reload();
                 } else {
                     $('#myModalContent').html(result);
