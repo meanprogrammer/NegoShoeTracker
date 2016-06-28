@@ -3,13 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>Shipment</h4>
-    <hr />
-
+    <h3>Shipment Details</h3>
     <table class="table">
         <tr>
             <td>Shipment #</td>
@@ -34,14 +29,18 @@
             <td>@Html.DisplayFor(model => model.CurrentExchangeRate)</td>
         </tr>
         <tr>
+            <td>Total Cost</td>
+            <td><strong>@Html.DisplayFor(model => model.TotalCost)</strong></td>
             <td>Profit</td>
-            <td colspan="3">@Html.DisplayFor(model => model.Profit)</td>
+            <td>@Html.DisplayFor(model => model.Profit)</td>
         </tr>
         <tr>
             <td>Notes</td>
             <td colspan="3">@Html.DisplayFor(model => model.Notes)</td>
         </tr>
     </table>
+    
+    
 </div>
 
 <div class="row">
@@ -53,15 +52,25 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-striped">
-            <tr>
-                <th>Item Name</th>
-                <th>Merchant</th>
-                <th>Qty.</th>
-                <th>BP</th>
-                <th>TP</th>
-                <th>SP</th>
-                <th>Status</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Merchant</th>
+                    <th>Qty.</th>
+                    <th>BP</th>
+                    <th>TP</th>
+                    <th>SP</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4"></td>
+                    <td>@Html.DisplayFor(model => model.TotalProjectedSales)</td>
+                    <td>@Html.DisplayFor(model => model.TotalSales)</td>
+                    <td></td>
+                </tr>
+            </tfoot>
             @foreach (var m in Model.ShipmentItems)
             {
                 <tr>

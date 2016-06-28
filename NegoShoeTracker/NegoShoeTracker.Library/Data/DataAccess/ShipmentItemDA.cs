@@ -82,9 +82,29 @@ namespace NegoShoeTracker.Library
                 _item.SoldPrice, _item.StatusID, _item.CurrentExchangeRate, _item.Notes)))
             {
                 result = db.ExecuteNonQuery(cmd);
+
+                //recalc
+                if (result > 0)
+                {
+                    ShipmentDA parentDA = new ShipmentDA();
+                    Shipment parent = parentDA.GetOne(_item.SID);
+                    if (parent != null)
+                    {
+                        ReCalculate(parent);
+                        parentDA.UpdateShipment(parent, parent.ID);
+                    }
+                }
             }
 
             return result > 0;
+        }
+
+        private void ReCalculate(Shipment shipment)
+        {
+            shipment.TotalProjectedSales = shipment.ShipmentItems.Sum(c => c.TargetPrice);
+            shipment.TotalSales = shipment.ShipmentItems.Sum(x=>x.SoldPrice);
+            shipment.TotalCost = shipment.ShipmentItems.Sum(i => i.BoughtPrice) + shipment.ShippingCost + shipment.ShoppingCharge + shipment.SalexTax;
+            shipment.Profit = shipment.TotalSales - shipment.TotalCost;
         }
 
         public bool UpdateShipmentItem(ShipmentItem _item, int id)

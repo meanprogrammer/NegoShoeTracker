@@ -19,6 +19,10 @@ namespace NegoShoeTracker.Library
         public double CurrentExchangeRate { get; set; }
         public string Notes { get; set; }
 
+        public double TotalCost { get; set; }
+        public double TotalProjectedSales { get; set; }
+        public double TotalSales { get; set; }
+
         public List<ShipmentItem> ShipmentItems { get; set; }
     }
 }
