@@ -22,7 +22,7 @@ namespace NegoShoeTracker.Library
         public double TotalCost { get; set; }
         public double TotalProjectedSales { get; set; }
         public double TotalSales { get; set; }
-
+        public double SubTotal { get; set; }
         public List<ShipmentItem> ShipmentItems { get; set; }
     }
 }

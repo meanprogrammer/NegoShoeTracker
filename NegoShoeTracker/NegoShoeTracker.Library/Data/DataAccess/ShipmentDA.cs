@@ -16,7 +16,7 @@ namespace NegoShoeTracker.Library
         {
             List<Shipment> list = new List<Shipment>();
 
-            using (DbCommand cmd = db.GetSqlStringCommand("SELECT [ID],[ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales] FROM [Shipment]"))
+            using (DbCommand cmd = db.GetSqlStringCommand("SELECT [ID],[ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales],[SubTotal] FROM [Shipment]"))
             {
                 using (IDataReader reader = db.ExecuteReader(cmd))
                 {
@@ -51,7 +51,7 @@ namespace NegoShoeTracker.Library
         {
             Shipment s = null;
 
-            using (DbCommand cmd = db.GetSqlStringCommand(string.Format("SELECT [ID],[ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales] FROM [Shipment] WHERE [ID]={0}", id)))
+            using (DbCommand cmd = db.GetSqlStringCommand(string.Format("SELECT [ID],[ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales],[SubTotal] FROM [Shipment] WHERE [ID]={0}", id)))
             {
                 using (IDataReader reader = db.ExecuteReader(cmd))
                 {
@@ -84,8 +84,8 @@ namespace NegoShoeTracker.Library
         {
             var result = 0;
             string sql = "INSERT INTO [Shipment] " +
-                        "([ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales]) " +
-                        "VALUES ({0},'{1}','{2}',{3},{4},{5},{6},{7},'{8}',0,0,0)";
+                        "([ShipmentNumber],[ShipmentName],[ArrivalDate],[SalexTax],[ShippingCost],[ShoppingCharge],[Profit],[CurrentExchangeRate],[Notes],[TotalCost],[TotalProjectedSales],[TotalSales],[SubTotal]) " +
+                        "VALUES ({0},'{1}','{2}',{3},{4},{5},{6},{7},'{8}',0,0,0,0)";
 
             using (DbCommand cmd = db.GetSqlStringCommand(
                 string.Format(sql, shipment.ShipmentNumber, shipment.ShipmentName, shipment.ArrivalDate, shipment.SalexTax,shipment.ShippingCost,shipment.ShoppingCharge,
@@ -113,13 +113,24 @@ namespace NegoShoeTracker.Library
                           ",[TotalCost] = {9} " +
                           ",[TotalProjectedSales] = {10} " +
                           ",[TotalSales] = {11} " +
-                          "WHERE [ID] = {12} ";
+                          ",[SubTotal] = {12} " +
+                          "WHERE [ID] = {13} ";
 
             using (DbCommand cmd = db.GetSqlStringCommand(
                 string.Format(sql, _shipment.ShipmentNumber, _shipment.ShipmentName, _shipment.ArrivalDate, _shipment.SalexTax, _shipment.ShippingCost, _shipment.ShoppingCharge,
-                _shipment.Profit, _shipment.CurrentExchangeRate, _shipment.Notes, _shipment.TotalCost, _shipment.TotalProjectedSales, _shipment.TotalSales, id)))
+                _shipment.Profit, _shipment.CurrentExchangeRate, _shipment.Notes, _shipment.TotalCost, _shipment.TotalProjectedSales, _shipment.TotalSales, _shipment.SubTotal, id)))
             {
                 result = db.ExecuteNonQuery(cmd);
+            }
+            return result > 0;
+        }
+
+        public bool DeleteShipment(int id)
+        {
+            int result = 0;
+            using (DbCommand cmd = db.GetSqlStringCommand(string.Format("DELETE FROM [ShipmentItem] WHERE SID = {0}; DELETE FROM [Shipment] WHERE ID = {1}", id, id)))
+            {
+                 result = db.ExecuteNonQuery(cmd);
             }
             return result > 0;
         }

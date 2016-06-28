@@ -12,8 +12,8 @@
 
 
             $('#myModal').modal({
-                /*backdrop: 'static',*/
-                keyboard: true
+                backdrop: 'static',
+                keyboard: false
             }, 'show');
 
             bindForm(this);

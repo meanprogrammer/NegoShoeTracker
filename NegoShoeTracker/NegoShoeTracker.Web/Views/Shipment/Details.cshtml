@@ -61,6 +61,7 @@
                     <th>TP</th>
                     <th>SP</th>
                     <th>Status</th>
+                    <td></td>
                 </tr>
             </thead>
             <tfoot>
@@ -81,6 +82,9 @@
                     <td>@m.TargetPrice</td>
                     <td>@m.SoldPrice</td>
                     <td>@m.Status</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = m.RecordID }) |
+                    @Html.ActionLink("Details", "Details", new { id = m.RecordID }) |
+                    @Html.ActionLink("Delete", "Delete", "ShipmentItem", new { id = m.RecordID }, new object { })</td>
                 </tr>
             }
         </table>

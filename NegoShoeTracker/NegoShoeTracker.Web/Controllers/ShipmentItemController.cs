@@ -89,7 +89,16 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: ShipmentItem/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                // TODO: Add delete logic here
+                shipment.DeleteShipmentItem(id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: ShipmentItem/Delete/5

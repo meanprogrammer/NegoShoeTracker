@@ -337,6 +337,8 @@
     <Content Include="Views\Shipment\Create.cshtml" />
     <Content Include="Views\Shipment\Edit.cshtml" />
     <Content Include="Views\ShipmentItem\_Create.cshtml" />
+    <Content Include="Views\Shipment\Delete.cshtml" />
+    <Content Include="Views\ShipmentItem\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

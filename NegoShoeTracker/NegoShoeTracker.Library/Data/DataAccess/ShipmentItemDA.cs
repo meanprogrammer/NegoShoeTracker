@@ -102,7 +102,7 @@ namespace NegoShoeTracker.Library
         private void ReCalculate(Shipment shipment)
         {
             shipment.TotalProjectedSales = shipment.ShipmentItems.Sum(c => c.TargetPrice);
-            shipment.TotalSales = shipment.ShipmentItems.Sum(x=>x.SoldPrice);
+            shipment.TotalSales = shipment.ShipmentItems.Where(r=>r.StatusID == 2).Sum(x=>x.SoldPrice);
             shipment.TotalCost = shipment.ShipmentItems.Sum(i => i.BoughtPrice) + shipment.ShippingCost + shipment.ShoppingCharge + shipment.SalexTax;
             shipment.Profit = shipment.TotalSales - shipment.TotalCost;
         }
