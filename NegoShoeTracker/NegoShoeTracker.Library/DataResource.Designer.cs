@@ -111,7 +111,7 @@ namespace NegoShoeTracker.Library {
         ///  FROM [ShipmentItem] s
         ///  INNER JOIN Merchant m ON m.MerchantID = s.SID
         ///  INNER JOIN ItemStatus st ON st.RecordID = s.StatusID
-        ///  WHERE [RecordID] = {0}.
+        ///  WHERE s.[RecordID] = {0}.
         /// </summary>
         internal static string SQL_GetOneShipmentItem {
             get {

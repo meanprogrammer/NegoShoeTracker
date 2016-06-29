@@ -156,7 +156,7 @@
   FROM [ShipmentItem] s
   INNER JOIN Merchant m ON m.MerchantID = s.SID
   INNER JOIN ItemStatus st ON st.RecordID = s.StatusID
-  WHERE [RecordID] = {0}</value>
+  WHERE s.[RecordID] = {0}</value>
   </data>
   <data name="SQL_SaveShipmentItem" xml:space="preserve">
     <value>INSERT INTO [ShipmentItem]

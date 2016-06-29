@@ -82,9 +82,8 @@
                     <td>@m.TargetPrice</td>
                     <td>@m.SoldPrice</td>
                     <td>@m.Status</td>
-                    <td>@Html.ActionLink("Edit", "Edit", new { id = m.RecordID }) |
-                    @Html.ActionLink("Details", "Details", new { id = m.RecordID }) |
-                    @Html.ActionLink("Delete", "Delete", "ShipmentItem", new { id = m.RecordID }, new object { })</td>
+                    <td>@Html.ActionLink("Details", "Details", "ShipmentItem", new { id = m.RecordID }, new object { }) |
+                    @Html.ActionLink("Delete", "Delete", "ShipmentItem", new { id = m.RecordID, parentId = m.SID }, new object { })</td>
                 </tr>
             }
         </table>

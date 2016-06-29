@@ -109,27 +109,54 @@ namespace NegoShoeTracker.Library
 
         public bool UpdateShipmentItem(ShipmentItem _item, int id)
         {
+            var updateResult = false;
             var result = 0;
             using (DbCommand cmd = db.GetSqlStringCommand(
                 string.Format(DataResource.SQL_UpdateShipmentItem, _item.ItemName, _item.MerchantID, _item.Quantity, _item.BoughtPrice, _item.TargetPrice,
                 _item.SoldPrice, _item.StatusID, _item.CurrentExchangeRate, _item.Notes, id)))
             {
+                ShipmentItem item = GetOne(id);
                 result = db.ExecuteNonQuery(cmd);
+
+                if (result > 0)
+                {
+                    if (item != null)
+                    {
+                        ShipmentDA parentDA = new ShipmentDA();
+                        Shipment sh = parentDA.GetOne(item.SID);
+                        ReCalculate(sh);
+                        updateResult = parentDA.UpdateShipment(sh, item.SID);
+                    }
+                }
             }
 
-            return result > 0;
+            return result > 0 && updateResult;
         }
 
         public bool DeleteShipmentItem(int recordId)
         {
             var result = 0;
+            var updateResult = false;
             using (DbCommand cmd = db.GetSqlStringCommand(
                 string.Format(DataResource.SQL_DeleteShipmentItem, recordId)))
             {
+
+                ShipmentItem item = GetOne(recordId);
                 result = db.ExecuteNonQuery(cmd);
+
+                if (result > 0)
+                {
+                    if (item != null)
+                    {
+                        ShipmentDA parentDA = new ShipmentDA();
+                        Shipment sh = parentDA.GetOne(item.SID);
+                        ReCalculate(sh);
+                        updateResult = parentDA.UpdateShipment(sh, item.SID);
+                    }
+                }
             }
 
-            return result > 0;
+            return result > 0 && updateResult;
         }
 
 

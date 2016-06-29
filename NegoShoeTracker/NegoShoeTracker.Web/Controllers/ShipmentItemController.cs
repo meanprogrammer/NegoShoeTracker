@@ -21,7 +21,8 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: ShipmentItem/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var si = shipment.GetOne(id);
+            return View(si);
         }
 
         // GET: ShipmentItem/Create
@@ -87,13 +88,13 @@ namespace NegoShoeTracker.Web.Controllers
         }
 
         // GET: ShipmentItem/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int parentId)
         {
             try
             {
                 // TODO: Add delete logic here
                 shipment.DeleteShipmentItem(id);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Shipment", new { id =parentId });
             }
             catch
             {

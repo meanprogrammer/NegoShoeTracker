@@ -1,0 +1,34 @@
+﻿@model NegoShoeTracker.Library.ShipmentItem
+
+<table class="table">
+    <tr>
+        <td>Parent Shipment ID</td>
+        <td colspan="3">@Html.DisplayFor(model => model.SID)</td>
+    </tr>
+    <tr>
+        <td width="20%">Item Name</td>
+        <td colspan="3">@Html.DisplayFor(model => model.ItemName)</td>
+    </tr>
+    <tr>
+        <td>Merchant</td>
+        <td>@Html.DisplayFor(model => model.MerchantName)</td>
+        <td>Qty.</td>
+        <td>@Html.DisplayFor(model => model.Quantity)</td>
+    </tr>
+    <tr>
+        <td>Price Bought</td>
+        <td>@Html.DisplayFor(model => model.BoughtPrice)</td>
+        <td>Target Price</td>
+        <td>@Html.DisplayFor(model => model.TargetPrice)</td>
+    </tr>
+    <tr>
+        <td>Price Sold</td>
+        <td>@Html.DisplayFor(model => model.SoldPrice)</td>
+        <td>Status</td>
+        <td>@Html.DisplayFor(model => model.Status)</td>
+    </tr>
+    <tr>
+        <td>Notes</td>
+        <td colspan="3">@Html.DisplayFor(model => model.Notes)</td>
+    </tr>
+</table>
