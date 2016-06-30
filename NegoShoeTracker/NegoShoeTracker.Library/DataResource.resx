@@ -117,6 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SQL_AddReservationItem" xml:space="preserve">
+    <value>INSERT INTO [ReservationItem]
+           ([ItemName]
+           ,[QuantityOrdered]
+           ,[RemainingUnreserved])
+     VALUES
+           ('{0}'
+           ,{1}
+           ,{2})</value>
+  </data>
+  <data name="SQL_AddReserver" xml:space="preserve">
+    <value>INSERT INTO [Reserver]
+           ([Name]
+           ,[QuantityReserved]
+           ,[ItemID])
+     VALUES
+           ('{0}'
+           ,{1}
+           ,{2})</value>
+  </data>
   <data name="SQL_DeleteShipmentItem" xml:space="preserve">
     <value>DELETE FROM [ShipmentItem] WHERE [RecordID] = {0}</value>
   </data>
@@ -181,6 +201,11 @@
            ,{7}
            ,{8}
            ,'{9}')</value>
+  </data>
+  <data name="SQL_UpdateReservationCount" xml:space="preserve">
+    <value>UPDATE [ReservationItem]
+   SET [RemainingUnreserved] = {0}
+ WHERE ID = {1}</value>
   </data>
   <data name="SQL_UpdateShipmentItem" xml:space="preserve">
     <value>UPDATE [ShipmentItem]

@@ -61,6 +61,38 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [ReservationItem]
+        ///           ([ItemName]
+        ///           ,[QuantityOrdered]
+        ///           ,[RemainingUnreserved])
+        ///     VALUES
+        ///           (&apos;{0}&apos;
+        ///           ,{1}
+        ///           ,{2}).
+        /// </summary>
+        internal static string SQL_AddReservationItem {
+            get {
+                return ResourceManager.GetString("SQL_AddReservationItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [Reserver]
+        ///           ([Name]
+        ///           ,[QuantityReserved]
+        ///           ,[ItemID])
+        ///     VALUES
+        ///           (&apos;{0}&apos;
+        ///           ,{1}
+        ///           ,{2}).
+        /// </summary>
+        internal static string SQL_AddReserver {
+            get {
+                return ResourceManager.GetString("SQL_AddReserver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DELETE FROM [ShipmentItem] WHERE [RecordID] = {0}.
         /// </summary>
         internal static string SQL_DeleteShipmentItem {
@@ -146,6 +178,17 @@ namespace NegoShoeTracker.Library {
         internal static string SQL_SaveShipmentItem {
             get {
                 return ResourceManager.GetString("SQL_SaveShipmentItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE [ReservationItem]
+        ///   SET [RemainingUnreserved] = {0}
+        /// WHERE ID = {1}.
+        /// </summary>
+        internal static string SQL_UpdateReservationCount {
+            get {
+                return ResourceManager.GetString("SQL_UpdateReservationCount", resourceCulture);
             }
         }
         
