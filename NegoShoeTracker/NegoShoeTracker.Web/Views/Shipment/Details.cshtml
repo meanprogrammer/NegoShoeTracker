@@ -44,8 +44,11 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-11">
         @Html.ActionLink("Add Shipment Item", "Create", "ShipmentItem", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-default" })
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Delete", "DeleteItems", "ShipmentItem", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-default" })
     </div>
 </div>
 <br />
@@ -54,6 +57,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <td></td>
                     <th>Item Name</th>
                     <th>Merchant</th>
                     <th>Qty.</th>
@@ -66,7 +70,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td colspan="4"></td>
+                    <td colspan="5"></td>
                     <td>@Html.DisplayFor(model => model.TotalProjectedSales)</td>
                     <td>@Html.DisplayFor(model => model.TotalSales)</td>
                     <td></td>
@@ -75,6 +79,7 @@
             @foreach (var m in Model.ShipmentItems)
             {
                 <tr>
+                    <td><input id="@m.RecordID" type="checkbox" onclick="toggleSelectedIds(@m.RecordID, this.checked)" /></td>
                     <td>@m.ItemName</td>
                     <td>@m.MerchantName</td>
                     <td>@m.Quantity</td>
@@ -108,3 +113,23 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modalform")
 }
+
+<script type="text/javascript">
+    var ids = [];
+    function toggleSelectedIds(id, checked) {
+        alert(id);
+        alert(checked);
+        if (checked) {
+            ids.push(id);
+        }
+        else {
+            index = ids.indexOf(id);
+            if(index > -1)
+            {
+                ids.splice(index, 1);
+            }
+        }
+
+        alert(ids);
+    }
+</script>

@@ -77,32 +77,42 @@ namespace NegoShoeTracker.Library
         public bool SaveShipmentItem(ShipmentItem _item)
         {
             var result = 0;
-            using (DbCommand cmd = db.GetSqlStringCommand(
-                string.Format(DataResource.SQL_SaveShipmentItem, _item.SID, _item.ItemName, _item.MerchantID, _item.Quantity, _item.BoughtPrice, _item.TargetPrice,
-                _item.SoldPrice, _item.StatusID, _item.CurrentExchangeRate, _item.Notes)))
+            try
             {
-                result = db.ExecuteNonQuery(cmd);
-
-                //recalc
-                if (result > 0)
+                for (int i = 0; i < _item.Quantity; i++)
                 {
-                    ShipmentDA parentDA = new ShipmentDA();
-                    Shipment parent = parentDA.GetOne(_item.SID);
-                    if (parent != null)
+                    using (DbCommand cmd = db.GetSqlStringCommand(
+                    string.Format(DataResource.SQL_SaveShipmentItem, _item.SID, _item.ItemName, _item.MerchantID, 1, _item.BoughtPrice, _item.TargetPrice,
+                    _item.SoldPrice, _item.StatusID, _item.CurrentExchangeRate, _item.Notes)))
                     {
-                        ReCalculate(parent);
-                        parentDA.UpdateShipment(parent, parent.ID);
+                        result = db.ExecuteNonQuery(cmd);
+
+                        //recalc
+                        if (result > 0)
+                        {
+                            ShipmentDA parentDA = new ShipmentDA();
+                            Shipment parent = parentDA.GetOne(_item.SID);
+                            if (parent != null)
+                            {
+                                ReCalculate(parent);
+                                parentDA.UpdateShipment(parent, parent.ID);
+                            }
+                        }
                     }
                 }
-            }
 
+            }
+            catch (Exception)
+            {
+                return false;
+            }
             return result > 0;
         }
 
         private void ReCalculate(Shipment shipment)
         {
             shipment.TotalProjectedSales = shipment.ShipmentItems.Sum(c => c.TargetPrice);
-            shipment.TotalSales = shipment.ShipmentItems.Where(r=>r.StatusID == 2).Sum(x=>x.SoldPrice);
+            shipment.TotalSales = shipment.ShipmentItems.Where(r => r.StatusID == 2).Sum(x => x.SoldPrice);
             shipment.TotalCost = shipment.ShipmentItems.Sum(i => i.BoughtPrice) + shipment.ShippingCost + shipment.ShoppingCharge + shipment.SalexTax;
             shipment.Profit = shipment.TotalSales - shipment.TotalCost;
         }
