@@ -140,6 +140,19 @@
   <data name="SQL_DeleteShipmentItem" xml:space="preserve">
     <value>DELETE FROM [ShipmentItem] WHERE [RecordID] = {0}</value>
   </data>
+  <data name="SQL_GetAllPurchaseItem" xml:space="preserve">
+    <value>SELECT [PurchaseItemID]
+      ,[PurchaseID]
+      ,[ItemName]
+      ,[Quantity]
+      ,[BoughtPrice]
+      ,[TargetPrice]
+      ,[SoldPrice]
+      ,[StatusID]
+      ,[Remarks]
+  FROM [PurchaseItem]
+  WHERE [PurchaseID] = {0}</value>
+  </data>
   <data name="SQL_GetAllShipmentItem" xml:space="preserve">
     <value>SELECT s.[RecordID]
       ,s.[SID]

@@ -80,11 +80,13 @@
     <Compile Include="Data\DataAccess\DbContextBase.cs" />
     <Compile Include="Data\DataAccess\MerchantDA.cs" />
     <Compile Include="Data\DataAccess\ItemStatusDA.cs" />
+    <Compile Include="Data\DataAccess\PurchaseItemDA.cs" />
     <Compile Include="Data\DataAccess\ReservationDA.cs" />
     <Compile Include="Data\DataAccess\ShipmentDA.cs" />
     <Compile Include="Data\DataAccess\ShipmentItemDA.cs" />
     <Compile Include="Entities\ItemStatus.cs" />
     <Compile Include="Entities\Merchant.cs" />
+    <Compile Include="Entities\PurchaseItem.cs" />
     <Compile Include="Entities\ReservationItem.cs" />
     <Compile Include="Entities\Reserver.cs" />
     <Compile Include="Entities\Shipment.cs" />

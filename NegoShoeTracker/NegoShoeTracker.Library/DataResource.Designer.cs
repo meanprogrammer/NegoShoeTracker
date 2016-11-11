@@ -102,6 +102,25 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT [PurchaseItemID]
+        ///      ,[PurchaseID]
+        ///      ,[ItemName]
+        ///      ,[Quantity]
+        ///      ,[BoughtPrice]
+        ///      ,[TargetPrice]
+        ///      ,[SoldPrice]
+        ///      ,[StatusID]
+        ///      ,[Remarks]
+        ///  FROM [PurchaseItem]
+        ///  WHERE [PurchaseID] = {0}.
+        /// </summary>
+        internal static string SQL_GetAllPurchaseItem {
+            get {
+                return ResourceManager.GetString("SQL_GetAllPurchaseItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT s.[RecordID]
         ///      ,s.[SID]
         ///      ,s.[ItemName]
