@@ -10,25 +10,13 @@ namespace NegoShoeTracker.Library
 {
     public class ReservationDA : DbContextBase
     {
-        public List<ReservationItem> GetAllReservation()
+        public List<ReservationItemDTO> GetAllReservation()
         {
-            List<ReservationItem> items = new List<ReservationItem>();
-            using (DbCommand cmd = db.GetSqlStringCommand("SELECT [ID],[ItemName],[QuantityOrdered],[RemainingUnreserved] FROM ReservationItem"))
+            List<ReservationItemDTO> items = new List<ReservationItemDTO>();
+            var data = dataContext.ReservationItems;
+            foreach (ReservationItem item in data)
             {
-                using (IDataReader reader = db.ExecuteReader(cmd))
-                {
-                    while (reader.Read())
-                    {
-                        ReservationItem item = new ReservationItem();
-                        item.ID = reader.GetInt32(0);
-                        item.ItemName = reader.GetString(1);
-                        item.QuantityOrdered = reader.GetInt32(2);
-                        item.RemainingUnreserved = reader.GetInt32(3);
-                        item.Reservers = GetReservers(item.ID);
-
-                        items.Add(item);
-                    }
-                }
+                items.Add(DTOConverter.ConvertReservationItem(item));
             }
             return items;
         }
