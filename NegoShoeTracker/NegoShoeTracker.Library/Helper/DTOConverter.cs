@@ -27,5 +27,14 @@ namespace NegoShoeTracker.Library
                 URL = item.URL
             };
         }
+
+        public static Merchant ConvertMerchantDTO(MerchantDTO merchant)
+        {
+            return new Merchant() { 
+                Name = merchant.Name,
+                URL = merchant.URL,
+                Description = merchant.Description
+            };
+        }
     }
 }
