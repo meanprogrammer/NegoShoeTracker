@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NegoShoeTracker.Library
 {
-    public class PurchaseItem
+    public class PurchaseItemDTO
     {
         public int PurchaseItemID { get; set; }
         public int PurchaseID { get; set; }

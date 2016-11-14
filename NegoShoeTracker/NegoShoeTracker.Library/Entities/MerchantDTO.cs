@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NegoShoeTracker.Library
 {
-    public class Reserver
+    public class MerchantDTO
     {
-        public int ID { get; set; }
+        public int MerchantID { get; set; }
         public string Name { get; set; }
-        public int QuantityReserved { get; set; }
-        public int ItemID { get; set; }
+        public string URL { get; set; }
+        public string Description { get; set; }
     }
 }

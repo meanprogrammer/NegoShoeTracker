@@ -81,16 +81,31 @@
     <Compile Include="Data\DataAccess\MerchantDA.cs" />
     <Compile Include="Data\DataAccess\ItemStatusDA.cs" />
     <Compile Include="Data\DataAccess\PurchaseItemDA.cs" />
-    <Compile Include="Data\DataAccess\ReservationDA.cs" />
-    <Compile Include="Data\DataAccess\ShipmentDA.cs" />
-    <Compile Include="Data\DataAccess\ShipmentItemDA.cs" />
-    <Compile Include="Entities\ItemStatus.cs" />
-    <Compile Include="Entities\Merchant.cs" />
-    <Compile Include="Entities\PurchaseItem.cs" />
-    <Compile Include="Entities\ReservationItem.cs" />
-    <Compile Include="Entities\Reserver.cs" />
-    <Compile Include="Entities\Shipment.cs" />
-    <Compile Include="Entities\ShipmentItem.cs" />
+    <Compile Include="Data\DataAccess\ReservationDA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\DataAccess\ShipmentDA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\DataAccess\ShipmentItemDA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\ItemStatusDTO.cs" />
+    <Compile Include="Entities\MerchantDTO.cs" />
+    <Compile Include="Entities\PurchaseItemDTO.cs" />
+    <Compile Include="Entities\ReservationItemDTO.cs" />
+    <Compile Include="Entities\ReserverDTO.cs" />
+    <Compile Include="Entities\ShipmentDTO.cs" />
+    <Compile Include="Entities\ShipmentItemDTO.cs" />
+    <Compile Include="Helper\DTOConverter.cs" />
+    <Compile Include="Negoshoe.cs">
+      <DependentUpon>Negoshoe.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Negoshoe.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Negoshoe.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -103,10 +118,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DataResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Negoshoe.dbml.layout">
+      <DependentUpon>Negoshoe.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="NegoShoe.bak" />
+    <None Include="Negoshoe.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Negoshoe.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

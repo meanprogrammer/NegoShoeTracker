@@ -15,10 +15,17 @@ namespace NegoShoeTracker.Library
             
         }
 
-        public List<Merchant> GetAllMerchant()
+        public List<MerchantDTO> GetAllMerchant()
         {
-            List<Merchant> list = new List<Merchant>();
+            List<MerchantDTO> list = new List<MerchantDTO>();
+            var data = dataContext.Merchants;
 
+            foreach (Merchant item in data)
+            {
+                list.Add(DTOConverter.ConvertMerchant(item));
+            }
+
+            /*
             using (DbCommand cmd = db.GetSqlStringCommand("SELECT [MerchantID],[Name],[URL],[Description] FROM [Merchant]"))
             {
                 using (IDataReader reader = db.ExecuteReader(cmd))
@@ -36,14 +43,22 @@ namespace NegoShoeTracker.Library
                     }
                 }
             }
-
+            */
             return list;
         }
 
-        public Merchant GetOne(int id)
+        public MerchantDTO GetOne(int id)
         {
-            Merchant m = null;
+            MerchantDTO m = null;
 
+            var result = dataContext.Merchants.Where(x => x.MerchantID == id).FirstOrDefault();
+
+            if (result != null)
+            {
+                m = DTOConverter.ConvertMerchant(result);
+            }
+
+            /*
             using (DbCommand cmd = db.GetSqlStringCommand(string.Format("SELECT [MerchantID],[Name],[URL],[Description] FROM [Merchant] WHERE [MerchantID]={0}", id)))
             {
                 using (IDataReader reader = db.ExecuteReader(cmd))
@@ -58,6 +73,7 @@ namespace NegoShoeTracker.Library
                     }
                 }
             }
+             * */
 
             return m;
         }
@@ -65,14 +81,11 @@ namespace NegoShoeTracker.Library
         public bool DeleteMerchant(int id)
         {
             int result = 0;
-            using (DbCommand cmd = db.GetSqlStringCommand(string.Format("DELETE FROM [Merchant] WHERE [MerchantID]={0}", id)))
-            {
-                result = db.ExecuteNonQuery(cmd);
-            }
+            result = dataContext.ExecuteCommand(string.Format("DELETE FROM [Merchant] WHERE [MerchantID]={0}", id));
             return result > 0;
         }
 
-        public bool SaveMerchant(Merchant merchant)
+        public bool SaveMerchant(MerchantDTO merchant)
         {
             int result = 0;
             string sql = "INSERT INTO [Merchant] " +

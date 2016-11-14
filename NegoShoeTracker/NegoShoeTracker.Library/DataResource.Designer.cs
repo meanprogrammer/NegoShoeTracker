@@ -171,6 +171,32 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [PurchaseItem]
+        ///           ([PurchaseID]
+        ///           ,[ItemName]
+        ///           ,[Quantity]
+        ///           ,[BoughtPrice]
+        ///           ,[TargetPrice]
+        ///           ,[SoldPrice]
+        ///           ,[StatusID]
+        ///           ,[Remarks])
+        ///     VALUES
+        ///           ({0}
+        ///           ,&apos;{1}&apos;
+        ///           ,{2}
+        ///           ,{3}
+        ///           ,{4}
+        ///           ,{5}
+        ///           ,{6}
+        ///           ,&apos;{7}&apos;).
+        /// </summary>
+        internal static string SQL_SavePurchaseItem {
+            get {
+                return ResourceManager.GetString("SQL_SavePurchaseItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO [ShipmentItem]
         ///           ([SID]
         ///           ,[ItemName]

@@ -10,9 +10,25 @@ namespace NegoShoeTracker.Library
 {
     public class ItemStatusDA : DbContextBase
     {
-        public List<ItemStatus> GetAllItemStatus()
+        private NegoshoeDataContext dataContext = null;
+
+        public ItemStatusDA() 
         {
-            List<ItemStatus> statuses = new List<ItemStatus>();
+            dataContext = new NegoshoeDataContext();
+        }
+
+        public List<ItemStatusDTO> GetAllItemStatus()
+        {
+            List<ItemStatusDTO> statuses = new List<ItemStatusDTO>();
+
+            var data = dataContext.ItemStatus.ToList();
+
+            foreach (ItemStatus item in data)
+            {
+                statuses.Add(DTOConverter.ConvertItemStatus(item));
+            }
+
+            /*
             using (DbCommand cmd = db.GetSqlStringCommand("SELECT RecordID,Status FROM ItemStatus"))
             {
                 using (IDataReader reader = db.ExecuteReader(cmd))
@@ -26,6 +42,10 @@ namespace NegoShoeTracker.Library
                     }
                 }
             }
+            */
+
+
+
 
             return statuses;
         }
