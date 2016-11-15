@@ -46,5 +46,26 @@ namespace NegoShoeTracker.Library
                 RemainingUnreserved = item.RemainingUnreserved
             };
         }
+
+        public static ReservationItem ConvertReservationItem(ReservationItemDTO item)
+        {
+            return new ReservationItem()
+            {
+                ID = item.ID,
+                ItemName = item.ItemName,
+                QuantityOrdered = item.QuantityOrdered,
+                RemainingUnreserved = item.RemainingUnreserved
+            };
+        }
+
+        public static ReserverDTO ConvertReserver(Reserver item)
+        {
+            return new ReserverDTO() { 
+                ID = item.ID,
+                ItemID = item.ItemID,
+                Name = item.Name,
+                QuantityReserved = item.QuantityReserved
+            };
+        }
     }
 }

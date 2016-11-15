@@ -12,6 +12,6 @@ namespace NegoShoeTracker.Library
         public string ItemName { get; set; }
         public int QuantityOrdered { get; set; }
         public int RemainingUnreserved { get; set; }
-        public List<Reserver> Reservers { get; set; }
+        public List<ReserverDTO> Reservers { get; set; }
     }
 }
