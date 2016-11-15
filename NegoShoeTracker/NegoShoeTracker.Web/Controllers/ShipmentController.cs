@@ -14,15 +14,15 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Shipment
         public ActionResult Index()
         {
-            var result = shipmentDA.GetAllShipments();
-            return View(result);
+            //var result = shipmentDA.GetAllShipments();
+            return View(0);
         }
 
         // GET: Shipment/Details/5
         public ActionResult Details(int id)
         {
-            var result = shipmentDA.GetOne(id);
-            return View(result);
+            //var result = shipmentDA.GetOne(id);
+            return View(0);
         }
 
         // GET: Shipment/Create
@@ -38,7 +38,7 @@ namespace NegoShoeTracker.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-                shipmentDA.SaveShipment(shipment);
+                //shipmentDA.SaveShipment(shipment);
                 return RedirectToAction("Index");
             }
             catch
@@ -50,8 +50,8 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Shipment/Edit/5
         public ActionResult Edit(int id)
         {
-            var result = shipmentDA.GetOne(id);
-            return View(result);
+            //var result = shipmentDA.GetOne(id);
+            return View(0);
         }
 
         // POST: Shipment/Edit/5
@@ -60,7 +60,7 @@ namespace NegoShoeTracker.Web.Controllers
         {
             try
             {
-                var result = shipmentDA.UpdateShipment(shipment, id);
+                //var result = shipmentDA.UpdateShipment(shipment, id);
                 TempData.Add("updateMessage", "test");
                 return RedirectToAction("Index");
             }
@@ -75,7 +75,7 @@ namespace NegoShoeTracker.Web.Controllers
         {
             try
             {
-                shipmentDA.DeleteShipment(id);
+                //shipmentDA.DeleteShipment(id);
                 return RedirectToAction("Index");
             }
             catch
@@ -90,7 +90,7 @@ namespace NegoShoeTracker.Web.Controllers
         {
             try
             {
-                shipmentDA.DeleteShipment(id);
+                //shipmentDA.DeleteShipment(id);
                 return RedirectToAction("Index");
             }
             catch

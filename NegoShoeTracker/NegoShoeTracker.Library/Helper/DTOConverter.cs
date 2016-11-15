@@ -67,5 +67,20 @@ namespace NegoShoeTracker.Library
                 QuantityReserved = item.QuantityReserved
             };
         }
+
+        public static PurchaseItemDTO ConvertPurchaseItem(PurchaseItem item)
+        {
+            return new PurchaseItemDTO() { 
+                BoughtPrice = item.BoughtPrice,
+                ItemName = item.ItemName,
+                PurchaseID = item.PurchaseID,
+                PurchaseItemID = item.PurchaseItemID,
+                Quantity = item.Quantity,
+                Remarks = item.Remarks,
+                SoldPrice = item.SoldPrice,
+                StatusID = item.StatusID,
+                TargetPrice = item.TargetPrice
+            };
+        }
     }
 }

@@ -21,8 +21,9 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: ShipmentItem/Details/5
         public ActionResult Details(int id)
         {
-            var si = shipment.GetOne(id);
-            return View(si);
+            return View();
+            //var si = shipment.GetOne(id);
+            //return View(si);
         }
 
         // GET: ShipmentItem/Create
@@ -35,28 +36,28 @@ namespace NegoShoeTracker.Web.Controllers
             return PartialView("_Create");
         }
 
-        private List<ItemStatus> AppendBlankStatus(List<ItemStatus> list)
-        { 
-            ItemStatus s = new ItemStatus() { RecordID = 0, Status ="-- SELECT --" };
+        private List<ItemStatusDTO> AppendBlankStatus(List<ItemStatusDTO> list)
+        {
+            ItemStatusDTO s = new ItemStatusDTO() { RecordID = 0, Status = "-- SELECT --" };
             list.Insert(0, s);
             return list;
         }
 
-        private List<Merchant> AppendBlankMerchant(List<Merchant> list)
+        private List<MerchantDTO> AppendBlankMerchant(List<MerchantDTO> list)
         { 
-            Merchant blank = new Merchant() { MerchantID = 0, Name = "-- SELECT --" };
+            MerchantDTO blank = new MerchantDTO() { MerchantID = 0, Name = "-- SELECT --" };
             list.Insert(0, blank);
             return list;
         }
 
         // POST: ShipmentItem/Create
         [HttpPost]
-        public ActionResult Create(ShipmentItem item)
+        public ActionResult Create(ShipmentItemDTO item)
         {
             try
             {
                 // TODO: Add insert logic here
-                shipment.SaveShipmentItem(item);
+                //shipment.SaveShipmentItem(item);
                 return Json(true);
             }
             catch
@@ -93,7 +94,7 @@ namespace NegoShoeTracker.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-                shipment.DeleteShipmentItem(id);
+                //shipment.DeleteShipmentItem(id);
                 return RedirectToAction("Details", "Shipment", new { id =parentId });
             }
             catch

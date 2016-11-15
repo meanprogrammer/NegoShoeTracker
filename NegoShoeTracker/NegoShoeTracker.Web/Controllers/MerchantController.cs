@@ -33,7 +33,7 @@ namespace NegoShoeTracker.Web.Controllers
 
         // POST: api/Merchant
         [System.Web.Mvc.HttpPost]
-        public ActionResult Create(Merchant merchant)
+        public ActionResult Create(MerchantDTO merchant)
         {
             bool result = merchantDa.SaveMerchant(merchant);
             string msg = result ? "Saved Successfully." : "Saving Failed.";
