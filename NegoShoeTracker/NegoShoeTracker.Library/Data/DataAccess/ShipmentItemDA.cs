@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace NegoShoeTracker.Library
 {
     public class ShipmentItemDA : DbContextBase
-    {
+    {/*
         public List<ShipmentItem> GetAllShipmentItem(int parentId)
         {
             List<ShipmentItem> list = new List<ShipmentItem>();
@@ -169,6 +169,6 @@ namespace NegoShoeTracker.Library
             return result > 0 && updateResult;
         }
 
-
+*/
     }
 }

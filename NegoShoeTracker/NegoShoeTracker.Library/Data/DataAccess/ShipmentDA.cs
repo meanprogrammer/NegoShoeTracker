@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace NegoShoeTracker.Library
 {
     public class ShipmentDA : DbContextBase
-    {
+    {/*
         ShipmentItemDA si = new ShipmentItemDA();
 
         public List<Shipment> GetAllShipments()
@@ -133,6 +133,6 @@ namespace NegoShoeTracker.Library
                  result = db.ExecuteNonQuery(cmd);
             }
             return result > 0;
-        }
+        }*/
     }
 }
