@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NegoShoeTracker.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace NegoShoeTracker.Web.Controllers
 {
     public class PurchaseController : Controller
     {
+        PurchaseDA purchaseDa = new PurchaseDA();
         // GET: Purchase
         public ActionResult Index()
         {
-            return View();
+            var data = purchaseDa.GetAllPurchases();
+            return View(data);
         }
 
         // GET: Purchase/Details/5
