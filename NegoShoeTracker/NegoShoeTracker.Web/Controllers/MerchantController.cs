@@ -19,11 +19,31 @@ namespace NegoShoeTracker.Web.Controllers
             return View(data);
         }
 
+        public ActionResult Details(int id)
+        {
+            var data = merchantDa.GetOne(id);
+            return View(data);
+        }
+
         // GET: api/Merchant/5
         public ActionResult Edit(int id)
         {
             var data = merchantDa.GetOne(id);
             return View(data);
+        }
+
+         [System.Web.Mvc.HttpPost]
+        public ActionResult Edit(int id, MerchantDTO merchant)
+        {
+            try
+            {
+                var result = merchantDa.UpdateMerchant(id, merchant);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Create()
@@ -41,15 +61,21 @@ namespace NegoShoeTracker.Web.Controllers
             ModelState.Clear();
             return View();
         }
-        
-        // PUT: api/Merchant/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
 
         // DELETE: api/Merchant/5
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            bool result = merchantDa.DeleteMerchant(id);
+            if (result)
+            {
+                var data = merchantDa.GetAllMerchant();
+                return View("Index", data);
+            }
+            else
+            {
+                return View("Delete","Delete failed.");
+            }
+
         }
     }
 }

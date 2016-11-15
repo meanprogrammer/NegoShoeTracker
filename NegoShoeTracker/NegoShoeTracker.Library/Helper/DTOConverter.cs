@@ -22,7 +22,7 @@ namespace NegoShoeTracker.Library
 
             return new MerchantDTO() { 
                 MerchantID = item.MerchantID,
-                Description = string.IsNullOrEmpty(item.Description) ? item.Description : string.Empty,
+                Description = !string.IsNullOrEmpty(item.Description) ? item.Description : string.Empty,
                 Name = item.Name,
                 URL = item.URL
             };

@@ -340,6 +340,8 @@
     <Content Include="Views\Shipment\Delete.cshtml" />
     <Content Include="Views\ShipmentItem\Delete.cshtml" />
     <Content Include="Views\ShipmentItem\Details.cshtml" />
+    <Content Include="Views\Merchant\Details.cshtml" />
+    <Content Include="Views\Merchant\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,7 +57,7 @@ namespace NegoShoeTracker.Library
             return result > 0;
         }
 
-        public bool UpdateMerchant(Merchant _merchant, int id)
+        public bool UpdateMerchant(int id, MerchantDTO _merchant)
         {
             int result = 0;
             string sql = "UPDATE [Merchant] " +
