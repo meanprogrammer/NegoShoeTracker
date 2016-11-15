@@ -191,6 +191,22 @@
   INNER JOIN ItemStatus st ON st.RecordID = s.StatusID
   WHERE s.[RecordID] = {0}</value>
   </data>
+  <data name="SQL_SavePurchase" xml:space="preserve">
+    <value>INSERT INTO [Purchase]
+           ([MerchantID]
+           ,[TotalInUSD]
+           ,[TotalInPeso]
+           ,[ExchangeRate]
+           ,[PurchaseDate]
+           ,[Remarks])
+     VALUES
+           ({0}
+           ,{1}
+           ,{2}
+           ,{3}
+           ,{4}
+           ,'{5}')</value>
+  </data>
   <data name="SQL_SavePurchaseItem" xml:space="preserve">
     <value>INSERT INTO [PurchaseItem]
            ([PurchaseID]
@@ -234,6 +250,16 @@
            ,{7}
            ,{8}
            ,'{9}')</value>
+  </data>
+  <data name="SQL_UpdatePurchase" xml:space="preserve">
+    <value>UPDATE [Purchase]
+   SET [MerchantID] = {0}
+      ,[TotalInUSD] = {1}
+      ,[TotalInPeso] = {2}
+      ,[ExchangeRate] = {3}
+      ,[PurchaseDate] = {4}
+      ,[Remarks] = {5}
+ WHERE [PurchaseID] = {6}</value>
   </data>
   <data name="SQL_UpdateReservationCount" xml:space="preserve">
     <value>UPDATE [ReservationItem]

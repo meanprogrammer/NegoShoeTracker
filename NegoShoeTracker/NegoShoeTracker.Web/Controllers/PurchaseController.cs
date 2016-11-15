@@ -10,6 +10,7 @@ namespace NegoShoeTracker.Web.Controllers
     public class PurchaseController : Controller
     {
         PurchaseDA purchaseDa = new PurchaseDA();
+        MerchantDA merchantDa = new MerchantDA();
         // GET: Purchase
         public ActionResult Index()
         {
@@ -26,17 +27,21 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Purchase/Create
         public ActionResult Create()
         {
+            //merchants
+            var merchants = merchantDa.GetAllMerchant();
+            ViewData["merchants"] = merchants;
             return View();
         }
 
         // POST: Purchase/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PurchaseDTO dto)
         {
+            var merchants = merchantDa.GetAllMerchant();
+            ViewData["merchants"] = merchants;
             try
             {
-                // TODO: Add insert logic here
-
+                bool result = purchaseDa.Save(dto);
                 return RedirectToAction("Index");
             }
             catch

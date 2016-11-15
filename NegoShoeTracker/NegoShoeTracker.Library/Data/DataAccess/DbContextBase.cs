@@ -9,11 +9,11 @@ namespace NegoShoeTracker.Library
 {
     public class DbContextBase
     {
-        //public Database db { get; set; }
+        public Database db { get; set; }
         public NegoshoeDataContext dataContext = null;
         public DbContextBase()
         {
-            //db = DatabaseFactory.CreateDatabase();
+            db = DatabaseFactory.CreateDatabase();
             dataContext = new NegoshoeDataContext();
         }
     }

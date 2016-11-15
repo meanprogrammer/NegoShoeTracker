@@ -171,6 +171,28 @@ namespace NegoShoeTracker.Library {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [Purchase]
+        ///           ([MerchantID]
+        ///           ,[TotalInUSD]
+        ///           ,[TotalInPeso]
+        ///           ,[ExchangeRate]
+        ///           ,[PurchaseDate]
+        ///           ,[Remarks])
+        ///     VALUES
+        ///           ({0}
+        ///           ,{1}
+        ///           ,{2}
+        ///           ,{3}
+        ///           ,{4}
+        ///           ,&apos;{5}&apos;).
+        /// </summary>
+        internal static string SQL_SavePurchase {
+            get {
+                return ResourceManager.GetString("SQL_SavePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO [PurchaseItem]
         ///           ([PurchaseID]
         ///           ,[ItemName]
@@ -223,6 +245,22 @@ namespace NegoShoeTracker.Library {
         internal static string SQL_SaveShipmentItem {
             get {
                 return ResourceManager.GetString("SQL_SaveShipmentItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE [Purchase]
+        ///   SET [MerchantID] = {0}
+        ///      ,[TotalInUSD] = {1}
+        ///      ,[TotalInPeso] = {2}
+        ///      ,[ExchangeRate] = {3}
+        ///      ,[PurchaseDate] = {4}
+        ///      ,[Remarks] = {5}
+        /// WHERE [PurchaseID] = {6}.
+        /// </summary>
+        internal static string SQL_UpdatePurchase {
+            get {
+                return ResourceManager.GetString("SQL_UpdatePurchase", resourceCulture);
             }
         }
         

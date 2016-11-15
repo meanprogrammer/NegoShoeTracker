@@ -98,5 +98,19 @@ namespace NegoShoeTracker.Library
                 TotalInUSD = p.TotalInUSD
             };
         }
+
+        public static Purchase ConvertPurchaseDTO(PurchaseDTO p)
+        {
+            return new Purchase()
+            {
+                ExchangeRate = p.ExchangeRate,
+                MerchantID = p.MerchantID,
+                PurchaseDate = p.PurchaseDate,
+                PurchaseID = p.PurchaseID,
+                Remarks = p.Remarks,
+                TotalInPeso = p.TotalInPeso,
+                TotalInUSD = p.TotalInUSD
+            };
+        }
     }
 }
