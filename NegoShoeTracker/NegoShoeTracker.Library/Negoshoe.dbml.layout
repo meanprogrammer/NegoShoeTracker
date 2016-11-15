@@ -2,52 +2,52 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="Negoshoe">
   <DataContextMoniker Name="/NegoshoeDataContext" />
   <nestedChildShapes>
-    <classShape Id="1bfc9203-91eb-4fd8-a9f8-166b7efe7717" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="b5b5c19d-b5ed-4aa2-8d8e-50b9e997c0f3" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/NegoshoeDataContext/ItemStatus" />
       <nestedChildShapes>
-        <elementListCompartment Id="1c4515f4-1223-4c5b-b265-250843e63a7d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="316f1ad8-0f60-45ea-a789-42899529009c" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="20ac5b27-93b7-47a5-aa21-27850c52886b" absoluteBounds="0.75, 2.75, 2, 2.9247054036458326">
+    <classShape Id="b3df6e52-8142-46de-8fee-1c0701eb5aa1" absoluteBounds="0.75, 2.75, 2, 2.9247054036458326">
       <DataClassMoniker Name="/NegoshoeDataContext/ShipmentItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="5d74f1ce-8acd-4f69-b3ca-78061f57ee71" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="60fc268c-16be-4725-b034-5279552d9659" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2d2bf728-d9a0-4a1d-8401-5856b36eb855" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="872b8ce0-d28c-4e11-83d2-3f5b6681b283" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/NegoshoeDataContext/Merchant" />
       <nestedChildShapes>
-        <elementListCompartment Id="c8aa6759-8b1c-4499-bb90-8d944f24bad8" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4bd3ac84-7395-42df-b5b1-a0a71b07ec48" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="679e894b-c3f4-482f-a7a3-e5c65e9f41f7" absoluteBounds="3.75, 3.75, 2, 1.9631982421875005">
+    <classShape Id="01c72343-3931-4cde-82cf-735d85efedf3" absoluteBounds="3.75, 3.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/NegoshoeDataContext/Purchase" />
       <nestedChildShapes>
-        <elementListCompartment Id="930d7d8d-4a6e-4f29-9fc3-002c8024efcb" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ec45d24c-8ddd-4434-bac8-67aac6ff283f" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a60b6dd9-0a0f-4bde-9ca6-6f9168327f46" absoluteBounds="6.75, 0.75, 2, 2.7324039713541666">
+    <classShape Id="e6a62562-5209-4e7f-be60-4ef8e2a4b2e4" absoluteBounds="6.75, 0.75, 2, 2.5401025390625005">
       <DataClassMoniker Name="/NegoshoeDataContext/PurchaseItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="1dd014cc-3a4e-4f0e-b596-ebf8ce324a40" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="fb93d54f-6a10-46da-8c9f-700071e8f7fb" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c892eb5e-8b6c-4ed5-888f-0d9310bb1c25" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
+    <classShape Id="b2b30834-d8ad-4e4a-a8c5-e7e7970051e5" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/NegoshoeDataContext/ReservationItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="0d4310f8-68b6-459a-bc13-576a74c33f43" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="da22b8a5-d2e6-4a44-80be-e642b13741ef" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2235484a-261d-46d4-9168-a8704c9721cf" absoluteBounds="3.75, 6.75, 2, 1.5785953776041666">
+    <classShape Id="ac5fd022-c69f-4cad-9f5c-d1e703cd57d7" absoluteBounds="3.75, 6.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/NegoshoeDataContext/Reserver" />
       <nestedChildShapes>
-        <elementListCompartment Id="1f7094aa-2cdf-4c11-8a1e-7868d96a0323" absoluteBounds="3.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3f7a611c-5727-4205-ba70-0c8b5a3220e6" absoluteBounds="3.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="032ddbc4-aafc-4f96-b23d-322e504faf2b" absoluteBounds="6.75, 4.75, 2, 3.5016097005208326">
+    <classShape Id="6501b630-eb01-4783-ac8d-ed328ec4eb10" absoluteBounds="6.75, 4.75, 2, 3.5016097005208326">
       <DataClassMoniker Name="/NegoshoeDataContext/Shipment" />
       <nestedChildShapes>
-        <elementListCompartment Id="5361011c-9628-423f-b362-8ee50ac975ec" absoluteBounds="6.765, 5.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8a0444ab-24d0-4532-b65c-7bc2e7188f56" absoluteBounds="6.765, 5.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

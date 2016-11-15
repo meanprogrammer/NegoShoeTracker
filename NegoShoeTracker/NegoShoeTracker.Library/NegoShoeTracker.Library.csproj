@@ -80,6 +80,7 @@
     <Compile Include="Data\DataAccess\DbContextBase.cs" />
     <Compile Include="Data\DataAccess\MerchantDA.cs" />
     <Compile Include="Data\DataAccess\ItemStatusDA.cs" />
+    <Compile Include="Data\DataAccess\PurchaseDA.cs" />
     <Compile Include="Data\DataAccess\PurchaseItemDA.cs" />
     <Compile Include="Data\DataAccess\ReservationDA.cs">
       <SubType>Code</SubType>
@@ -92,6 +93,7 @@
     </Compile>
     <Compile Include="Entities\ItemStatusDTO.cs" />
     <Compile Include="Entities\MerchantDTO.cs" />
+    <Compile Include="Entities\PurchaseDTO.cs" />
     <Compile Include="Entities\PurchaseItemDTO.cs" />
     <Compile Include="Entities\ReservationItemDTO.cs" />
     <Compile Include="Entities\ReserverDTO.cs" />

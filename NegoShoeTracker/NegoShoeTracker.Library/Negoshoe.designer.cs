@@ -689,6 +689,8 @@ namespace NegoShoeTracker.Library
 		
 		private System.Nullable<double> _ExchangeRate;
 		
+		private System.Nullable<System.DateTime> _PurchaseDate;
+		
 		private string _Remarks;
 		
     #region Extensibility Method Definitions
@@ -705,6 +707,8 @@ namespace NegoShoeTracker.Library
     partial void OnTotalInPesoChanged();
     partial void OnExchangeRateChanging(System.Nullable<double> value);
     partial void OnExchangeRateChanged();
+    partial void OnPurchaseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPurchaseDateChanged();
     partial void OnRemarksChanging(string value);
     partial void OnRemarksChanged();
     #endregion
@@ -814,6 +818,26 @@ namespace NegoShoeTracker.Library
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PurchaseDate
+		{
+			get
+			{
+				return this._PurchaseDate;
+			}
+			set
+			{
+				if ((this._PurchaseDate != value))
+				{
+					this.OnPurchaseDateChanging(value);
+					this.SendPropertyChanging();
+					this._PurchaseDate = value;
+					this.SendPropertyChanged("PurchaseDate");
+					this.OnPurchaseDateChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(MAX)")]
 		public string Remarks
 		{
@@ -875,8 +899,6 @@ namespace NegoShoeTracker.Library
 		
 		private double _SoldPrice;
 		
-		private System.DateTime _PurchaseDate;
-		
 		private int _StatusID;
 		
 		private string _Remarks;
@@ -899,8 +921,6 @@ namespace NegoShoeTracker.Library
     partial void OnTargetPriceChanged();
     partial void OnSoldPriceChanging(double value);
     partial void OnSoldPriceChanged();
-    partial void OnPurchaseDateChanging(System.DateTime value);
-    partial void OnPurchaseDateChanged();
     partial void OnStatusIDChanging(int value);
     partial void OnStatusIDChanged();
     partial void OnRemarksChanging(string value);
@@ -1048,26 +1068,6 @@ namespace NegoShoeTracker.Library
 					this._SoldPrice = value;
 					this.SendPropertyChanged("SoldPrice");
 					this.OnSoldPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseDate", DbType="DateTime NOT NULL")]
-		public System.DateTime PurchaseDate
-		{
-			get
-			{
-				return this._PurchaseDate;
-			}
-			set
-			{
-				if ((this._PurchaseDate != value))
-				{
-					this.OnPurchaseDateChanging(value);
-					this.SendPropertyChanging();
-					this._PurchaseDate = value;
-					this.SendPropertyChanged("PurchaseDate");
-					this.OnPurchaseDateChanged();
 				}
 			}
 		}
