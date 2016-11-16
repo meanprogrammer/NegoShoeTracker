@@ -131,7 +131,7 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", "PurchaseItem/{id}/{parentId}", new { id = item.PurchaseItemID, parentId = item.PurchaseID }, null)
+                    @Html.ActionLink("Delete", "Delete", "PurchaseItem", new { id = item.PurchaseItemID, parentId = item.PurchaseID }, null)
                 </td>
             </tr>
         }
