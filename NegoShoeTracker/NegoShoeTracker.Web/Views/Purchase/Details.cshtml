@@ -1,0 +1,179 @@
+﻿@model NegoShoeTracker.Library.PurchaseDTO
+
+<div>
+    <h4>PurchaseDTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MerchantID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MerchantID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalInUSD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalInUSD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalInPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalInPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExchangeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExchangeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+    </dl>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("Add Purchase Item", "Create", "PurchaseItem", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-default" })
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                PurchaseItemID
+            </th>
+            <th>
+                model.PurchaseID
+            </th>
+            <th>
+                ItemName
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                BoughtPrice
+            </th>
+            <th>
+                TargetPrice
+            </th>
+            <th>
+                SoldPrice
+            </th>
+            <th>
+                StatusID
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseItemID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoughtPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoldPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", "PurchaseItem/{id}/{parentId}", new { id = item.PurchaseItemID, parentId = item.PurchaseID }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PurchaseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div id="myModal" class="modal fade in bs-example-modal-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modalform")
+}
+
+<script type="text/javascript">
+    var ids = [];
+    function toggleSelectedIds(id, checked) {
+        alert(id);
+        alert(checked);
+        if (checked) {
+            ids.push(id);
+        }
+        else {
+            index = ids.indexOf(id);
+            if(index > -1)
+            {
+                ids.splice(index, 1);
+            }
+        }
+
+        alert(ids);
+    }
+</script>

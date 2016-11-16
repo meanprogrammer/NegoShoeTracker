@@ -10,7 +10,7 @@ namespace NegoShoeTracker.Library
 {
     public class PurchaseItemDA : DbContextBase
     {
-        public List<PurchaseItemDTO> GetAllPurchaseItem(int parentId)
+        public List<PurchaseItemDTO> GetAll(int parentId)
         {
             List<PurchaseItemDTO> list = new List<PurchaseItemDTO>();
             var data = dataContext.PurchaseItems.Where(c => c.PurchaseID == parentId);
@@ -21,7 +21,20 @@ namespace NegoShoeTracker.Library
             return list;
         }
 
-        public bool SavePurchaseItem(PurchaseItemDTO _item)
+        public bool Delete(int id)
+        {
+            int result = 0;
+            PurchaseItem p = dataContext.PurchaseItems.Where(c => c.PurchaseItemID == id).FirstOrDefault();
+            if (p != null)
+            {
+                dataContext.PurchaseItems.DeleteOnSubmit(p);
+                result = dataContext.GetChangeSet().Deletes.Count;
+                dataContext.SubmitChanges();
+            }
+            return result > 0;
+        }
+
+        public bool Save(PurchaseItemDTO _item)
         {
             var result = 0;
             try

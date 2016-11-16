@@ -11,6 +11,7 @@ namespace NegoShoeTracker.Web.Controllers
     {
         PurchaseDA purchaseDa = new PurchaseDA();
         MerchantDA merchantDa = new MerchantDA();
+        PurchaseItemDA purchaseItemDa = new PurchaseItemDA();
         // GET: Purchase
         public ActionResult Index()
         {
@@ -21,7 +22,9 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Purchase/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var data = purchaseDa.GetOnePurchase(id);
+            data.Items = purchaseItemDa.GetAll(id);
+            return View(data);
         }
 
         // GET: Purchase/Create
@@ -53,17 +56,18 @@ namespace NegoShoeTracker.Web.Controllers
         // GET: Purchase/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            PurchaseDTO data = purchaseDa.GetOnePurchase(id);
+            return View(data);
         }
 
         // POST: Purchase/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PurchaseDTO dto)
         {
             try
             {
                 // TODO: Add update logic here
-
+                bool result = purchaseDa.Update(id, dto);
                 return RedirectToAction("Index");
             }
             catch
@@ -72,20 +76,12 @@ namespace NegoShoeTracker.Web.Controllers
             }
         }
 
-        // GET: Purchase/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: Purchase/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                bool result = purchaseDa.Delete(id);
                 return RedirectToAction("Index");
             }
             catch

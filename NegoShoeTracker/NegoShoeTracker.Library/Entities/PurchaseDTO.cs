@@ -16,5 +16,7 @@ namespace NegoShoeTracker.Library
         public DateTime? PurchaseDate { get; set; }
         public string Remarks { get; set; }
 
+        public List<PurchaseItemDTO> Items { get; set; }
+
     }
 }
